@@ -1,50 +1,46 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Prose from '../../components/Prose.astro';
+import Layout from '../../layouts/Layout.astro'
+import Prose from '../../components/Prose.astro'
 
-import type { GetStaticPaths } from "astro";
-import { getCollection } from "astro:content";
+import type { GetStaticPaths } from 'astro'
+import { getCollection } from 'astro:content'
 export const getStaticPaths = (async () => {
+	const allBlogPosts = await getCollection('blog', ({ data }) => {
+		return data.categories?.includes('Web Development') && !data?.draft
+	})
 
-  const allBlogPosts = await getCollection('blog', ({ data }) => {
-    return data.categories?.includes("Web Development") && !data?.draft
-  });
+	return (
+		allBlogPosts.map((post) => ({
+			params: { post: `${post.slug}` },
+			props: { post }
+		})) || []
+	)
+}) satisfies GetStaticPaths
 
-  return allBlogPosts.map(post => ({ 
-    params: { post: `${post.slug}` },
-    props: { post }
-  })) || [];
-}) satisfies GetStaticPaths;
-
-const { post } = Astro.props;
+const { post } = Astro.props
 const { Content } = await post.render()
-
 ---
 
-
 <Layout title="All posts">
-  <main>
-    <h1
-      data-name={"post--" + post.slug}
-      transition:name={"post--" + post.slug}
-    >
-      {post.data.title}
-    </h1>
-    <Prose>
-      <Content />
-    </Prose>
-  </main>
+	<main>
+		<h1 data-name={'post--' + post.slug} transition:name={'post--' + post.slug}>
+			{post.data.title}
+		</h1>
+		<Prose>
+			<Content />
+		</Prose>
+	</main>
 </Layout>
 
 <style>
-  h1 {
-    font-family: 'DM Serif Text', serif;
-    font-size: 42px;
-    font-weight: 500;
-    margin-bottom: 48px;
-  }
+	h1 {
+		font-family: 'DM Serif Text', serif;
+		font-size: 42px;
+		font-weight: 500;
+		margin-bottom: 48px;
+	}
 
-  main {
-    margin: 48px 0;
-  }
+	main {
+		margin: 48px 0;
+	}
 </style>

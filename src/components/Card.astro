@@ -1,17 +1,27 @@
 ---
 interface Props {
-	title: string;
-	body: string;
-	href: string;
-	imageSrc?: string;
+	title: string
+	body: string
+	href: string
+	imageSrc?: string
 }
 
-const { href, title, body, imageSrc } = Astro.props;
+const { href, title, body, imageSrc } = Astro.props
 ---
 
 <li class="link-card">
 	<a href={href}>
-		{imageSrc && <img data-title={"primaryImage" + title} transition:name={"primaryImage" + title} src={imageSrc} alt="primaryImage ni" style="max-width: 100%; max-height: 100%"/>}
+		{
+			imageSrc && (
+				<img
+					data-title={'primaryImage' + title}
+					transition:name={'primaryImage' + title}
+					src={imageSrc}
+					alt="primaryImage ni"
+					style="max-width: 100%; max-height: 100%"
+				/>
+			)
+		}
 		<h2>
 			{title}
 			<span>&rarr;</span>
