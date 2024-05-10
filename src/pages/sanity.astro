@@ -1,0 +1,100 @@
+---
+import Layout from '@layouts/Layout.astro';
+
+const projects = [
+  {
+    name: "UI SCHEMA GENERATOR",
+    description: "A much easier and beautiful drag and drop generator for your Sanity studio schema.",
+    link: `/projects/sanity/ui-schema-generator`
+  },
+  {
+    name: "SIMPLE DOCUMENT MIGRATE TOOL",
+    description: "Load up a document or a set of documents and easily migrate a field or a few to the new one.",
+    link: `/projects/sanity/simple-document-migrate-tool`
+  },
+  {
+    name: "EASY DATASET BACKUPS",
+    description: "No need to setup any CI/CD tool and just easily backup your Sanity dataset with us. An easy restore functionality also might come handy."
+  }
+]
+
+const plugins = [
+       {
+    name: "NETLIFY DEPLOY STATUS BADGE",
+    description: "Display Netlify's status badge in Sanity Studio and your site's recent deploys. Plus, trigger a new build if you want to!",
+    link: `/projects/sanity/plugins/netlify-deploy-status-badge`
+  },
+  {
+    name: "ASSET SOURCE PEXELS",
+    description: "Use Pexels as source for your Sanity Studio.",
+    link: `/projects/sanity/plugins/asset-source-pexels`
+  },
+]
+---
+
+<Layout title="My love for Sanity.io">
+  <main>
+     <h1>Sanity.io 🙌</h1>
+
+
+     <p>I came to love Sanity.io as it's the best headless CMS out there. Here are the things I've built with it.</p>
+
+
+     <div class="section">
+        <h2 class="primaryHeading">PROJECTS</h2>
+
+        {projects.map(project => <div class="projectCard">
+            <h3 data-name={"heading" + project.name} transition:name={"heading" + project.name}>
+              <a href={project?.link}>{project.name}</a>
+            </h3>
+            <p transition:name={"body" + project.name}>{project.description}</p>
+        </div>)}
+    </div>
+
+     <div class="section">
+        <h2 class="primaryHeading">PLUGINS</h2>
+        
+        {plugins.map(plugin => <div class="projectCard">
+            <h3 data-name={"heading" + plugin.name} transition:name={"heading" + plugin.name}>
+              <a href={plugin?.link}>{plugin.name}</a>      
+            </h3>
+            <p>{plugin.description}</p>
+        </div>)}
+     </div>
+  </main>
+</Layout>
+
+ <style>
+  .section {
+    margin-top: 15rem;
+  }
+  
+  h1 {
+    font-family: 'DM Serif Text', serif;
+    font-size: 42px;
+    font-weight: 500;
+  }
+ 
+  .primaryHeading {
+    letter-spacing: 12px;
+    font-weight: 400;
+  }
+
+  .projectCard {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+
+  .projectCard > h3, .projectCard > h3 > a {
+    font-family: 'DM Serif Text', serif;
+    font-size: 32px;
+    font-weight: 300;
+    text-decoration: none;
+    color: #000;
+  }
+
+  p {
+		line-height: 200%;
+		margin: 24px 0;
+	}
+ </style>
