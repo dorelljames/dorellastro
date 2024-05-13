@@ -1,6 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro'
 import Prose from '@components/Prose.astro'
+import Logo from '@components/Logo.astro'
 
 import type { GetStaticPaths } from 'astro'
 import { getCollection } from 'astro:content'
@@ -23,6 +24,10 @@ const { Content } = await post.render()
 
 <Layout title="All posts">
 	<main>
+		<div class="mb-12">
+			<Logo />
+		</div>
+
 		<h1 data-name={'post--' + post.slug} transition:name={'post--' + post.slug}>
 			{post.data.title}
 		</h1>

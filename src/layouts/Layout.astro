@@ -3,6 +3,8 @@ import '@fontsource-variable/dm-sans'
 import '@fontsource/dm-serif-text'
 import { ViewTransitions } from 'astro:transitions'
 
+import Footer from '@components/Footer.astro'
+
 interface Props {
 	title: string
 }
@@ -24,6 +26,7 @@ const { title } = Astro.props
 	<body>
 		<main class="m-auto max-w-prose">
 			<slot />
+			<Footer />
 		</main>
 		<style is:global>
 			body {
@@ -34,6 +37,38 @@ const { title } = Astro.props
 			main {
 				padding: 24px 0;
 			}
+
+			h1 {
+				font-family: 'DM Serif Text', serif;
+				font-size: 42px;
+				font-weight: 500;
+			}
+
+			p {
+				line-height: 200%;
+				margin: 24px 0;
+			}
 		</style>
+
+		<script>
+			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
+			if (
+				localStorage.theme === 'dark' ||
+				(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+			) {
+				document.documentElement.classList.add('dark')
+			} else {
+				document.documentElement.classList.remove('dark')
+			}
+
+			// Whenever the user explicitly chooses light mode
+			localStorage.theme = 'light'
+
+			// Whenever the user explicitly chooses dark mode
+			localStorage.theme = 'dark'
+
+			// Whenever the user explicitly chooses to respect the OS preference
+			localStorage.removeItem('theme')
+		</script>
 	</body>
 </html>

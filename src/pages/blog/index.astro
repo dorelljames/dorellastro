@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 import Layout from '../../layouts/Layout.astro'
+import Logo from '@components/Logo.astro'
 
 const allBlogPosts = await getCollection('blog', ({ data }) => {
 	return data.categories?.includes('Web Development') && !data?.draft
@@ -9,33 +10,35 @@ const sortedBlogPosts = allBlogPosts?.sort((a, b) => b.data.date.getTime() - a.d
 ---
 
 <Layout title="All posts">
-	<h1>Personal blog by @dorelljames</h1>
-	<p>I love you and coding.</p>
+	<main>
+		<h1>Personal blog by @dorelljames</h1>
+		<p>I love you and coding.</p>
 
-	<div class="section">
-		<h2 class="primaryHeading">LATEST</h2>
+		<div class="section">
+			<h2 class="primaryHeading">LATEST</h2>
 
-		{
-			sortedBlogPosts.map((post) => (
-				<div class="projectCard">
-					{/* {post.data?.featured_image && <img class="cover" src={post.data?.featured_image?.src} />} */}
-					<h3 data-name={'post--' + post.slug} transition:name={'post--' + post.slug}>
-						<a href={`/blog/${post?.slug}`} data-astro-reload>
-							{post.data.title}
-						</a>
-					</h3>
-					<div>
-						<p transition:name={'body' + post.data.description}>{post.data.description}</p>
+			{
+				sortedBlogPosts.map((post) => (
+					<div class="projectCard">
+						{/* {post.data?.featured_image && <img class="cover" src={post.data?.featured_image?.src} />} */}
+						<h3 data-name={'post--' + post.slug} transition:name={'post--' + post.slug}>
+							<a href={`/blog/${post?.slug}`} data-astro-reload>
+								{post.data.title}
+							</a>
+						</h3>
+						<div>
+							<p transition:name={'body' + post.data.description}>{post.data.description}</p>
+						</div>
 					</div>
-				</div>
-			))
-		}
+				))
+			}
 
-		<div>
-			It seems you have reached the end and have gone through all the blog posts. Didn't you find
-			what you're looking for? Perhaps, <a href="/blog">try going to the archives.</a>
+			<div>
+				It seems you have reached the end and have gone through all the blog posts. Didn't you find
+				what you're looking for? Perhaps, <a href="/blog">try going to the archives.</a>
+			</div>
 		</div>
-	</div>
+	</main>
 </Layout>
 
 <style>
@@ -71,15 +74,6 @@ const sortedBlogPosts = allBlogPosts?.sort((a, b) => b.data.date.getTime() - a.d
 		font-weight: 300;
 		text-decoration: none;
 		color: #000;
-	}
-
-	h1,
-	h2,
-	h3,
-	h4,
-	h5 {
-		font-family: 'DM Serif Text', serif;
-		font-weight: 500;
 	}
 
 	p {

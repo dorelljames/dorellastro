@@ -477,6 +477,11 @@
   resolved "https://registry.yarnpkg.com/@fontsource/dm-serif-text/-/dm-serif-text-5.0.20.tgz#f9f40dff13983396a7900b124b8e7a957c3c1456"
   integrity sha512-brSWk5vDisEZkuAOncdgWuQPX4/WnsN546OmoxoA9aNUdshV4hwxVnO8IFqiUJ35HtDuPEZY7huKfaQSPdvP8Q==
 
+"@fontsource/varela-round@^5.0.13":
+  version "5.0.13"
+  resolved "https://registry.yarnpkg.com/@fontsource/varela-round/-/varela-round-5.0.13.tgz#d62cb0cf665d34fc8358b2792bdbe28612d7ccaf"
+  integrity sha512-RuIQ3gMJT+u+vZVd6SlrUMfz2rsYlLii1BspHbR9VqXpr5gG+x6IPDJCsSTe/Qj1pC3SUQBA8+qWT9NdQCNVTQ==
+
 "@img/sharp-darwin-arm64@0.33.3":
   version "0.33.3"
   resolved "https://registry.yarnpkg.com/@img/sharp-darwin-arm64/-/sharp-darwin-arm64-0.33.3.tgz#2bbf676be830c5a9ae7d9294f201c9151535badd"

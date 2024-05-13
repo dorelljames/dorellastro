@@ -4,11 +4,12 @@ author: Dorell James
 type: post
 date: 2018-04-25T07:18:56+00:00
 url: /web-development/solving-mailtraps-error-550-too-many-emails-per-second/
-featured_image: "./mailtrap-emails-per-second.png"
+featured_image: './mailtrap-emails-per-second.png'
+description: "Solve Mailtrap's **error 550 (too many emails per second)** in Laravel"
 categories:
   - Web Development
 tags:
-  - "550 error"
+  - '550 error'
   - mailtrap
 ---
 
@@ -27,16 +28,16 @@ So in **createTransport** code and options, limiting 3 per second would translat
 
 ```js
 transporter = nodemailer.createTransport({
-  host: "smtp.mailtrap.io",
-  port: 2525,
-  auth: {
-    user: process.env.MAILTRAP_USER,
-    pass: process.env.MAILTRAP_PASSWORD,
-  },
-  pool: true, // use pooled connection
-  rateLimit: true, // enable to make sure we are limiting
-  maxConnections: 1, // set limit to 1 connection only
-  maxMessages: 3, // send 3 emails per second
+	host: 'smtp.mailtrap.io',
+	port: 2525,
+	auth: {
+		user: process.env.MAILTRAP_USER,
+		pass: process.env.MAILTRAP_PASSWORD
+	},
+	pool: true, // use pooled connection
+	rateLimit: true, // enable to make sure we are limiting
+	maxConnections: 1, // set limit to 1 connection only
+	maxMessages: 3 // send 3 emails per second
 })
 ```
 

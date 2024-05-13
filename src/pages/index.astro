@@ -1,27 +1,140 @@
 ---
 import Layout from '@layouts/Layout.astro'
-import NavItem from '@components/NavItem.astro'
+import Logo from '@components/Logo.astro'
 ---
 
 <Layout title="Dorell James">
 	<main>
-		<div>
-			<h2>DORELL JAMES</h2><p>I love you and coding</p>
+		<div class="flex flex-col justify-center text-center">
+			<Logo class="mb-0" />
+			<p>I love you and coding</p>
 		</div>
 
-		<hr />
+		<div class="cardNav">
+			<h2><a href="/blog">Blog</a></h2>
+			<p>2 new - 1 in progress - 12 overall</p>
+		</div>
 
-		<a href="/sanity">Sanity.io</a>
-		<a href="/blog">Blog</a>
+		<div class="cardNav">
+			<h2><a href="/events">Events</a></h2>
+			<p>2 upcoming - 1 in progress - 12 left this year</p>
+		</div>
 
-		<ul
-			class="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10"
-		>
-			<NavItem href="/about">About</NavItem>
-			<NavItem href="/articles">Articles</NavItem>
-			<NavItem href="/projects">Projects</NavItem>
-			<NavItem href="/speaking">Speaking</NavItem>
-			<NavItem href="/uses">Uses</NavItem>
-		</ul>
+		<div class="cardNav">
+			<h2><a href="/testing">Testing</a></h2>
+			<p>1 workshop - 12 videos - 3 in progress - 23% overall</p>
+		</div>
+
+		<div class="cardNav">
+			<h2><a href="/sanity-io">Sanity.io</a></h2>
+			<p>5 projects - 3 in progress - 20%</p>
+		</div>
+
+		<div class="cardNav">
+			<h2><a href="/about">About</a></h2>
+			<p>1 short desc - 2 focus - 101% focused</p>
+		</div>
 	</main>
 </Layout>
+
+<style>
+	h1,
+	h2 {
+		font-family: 'DM Serif Text', serif;
+	}
+
+	h1 {
+		font-size: 38px;
+	}
+
+	h2 {
+		font-size: 42px;
+	}
+
+	/* @keyframes moveFirst {
+		0% {
+			transform: translate(0px, 0px);
+		}
+		25% {
+			transform: translate(10%, 20%);
+		}
+		50% {
+			transform: translate(-10%, 40%);
+		}
+		75% {
+			transform: translate(20%, -20%);
+		}
+		100% {
+			transform: translate(0px, 0px);
+		}
+	}
+
+	@keyframes moveSecond {
+		0% {
+			transform: translate(0px, 0px);
+		}
+		25% {
+			transform: translate(-20%, 10%);
+		}
+		50% {
+			transform: translate(20%, -30%);
+		}
+		75% {
+			transform: translate(-30%, 20%);
+		}
+		100% {
+			transform: translate(0px, 0px);
+		}
+	}
+
+	@keyframes moveThird {
+		0% {
+			transform: translate(0px, 0px);
+		}
+		25% {
+			transform: translate(30%, -10%);
+		}
+		50% {
+			transform: translate(-40%, 20%);
+		}
+		75% {
+			transform: translate(10%, 30%);
+		}
+		100% {
+			transform: translate(0px, 0px);
+		}
+	} */
+
+	/* .cardNav:nth-child(1) {
+		position: absolute;
+		top: 30;
+		left: 15;
+		animation: moveFirst 10s infinite;
+		text-align: center;
+	}
+
+	.cardNav:nth-child(2) {
+		position: absolute;
+		top: 30;
+		right: 15;
+		animation: moveSecond 10s infinite;
+		text-align: center;
+	}
+
+	.cardNav:nth-child(3) {
+		position: absolute;
+		animation: moveThird 10s infinite;
+		text-align: center;
+	}
+
+	.cardNav {
+		position: absolute;
+	} */
+
+	.centered {
+	}
+
+	.cardNav {
+		text-align: center;
+	}
+</style>

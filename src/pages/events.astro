@@ -12,6 +12,13 @@ const events = [
 		location: 'enspace Cebu Business Park'
 	},
 	{
+		name: 'The Community Is You',
+		description: 'Joining communities is probably the last thing you ever need.',
+		date: '12/03/2024',
+		link: 'https://gdg.community.dev/events/details/google-gdg-cebu-presents-devfest-cebu-2023-1/',
+		location: 'DevFest Cebu 2023'
+	},
+	{
 		name: 'WordPress +|- JAMstack',
 		description: 'The pros and cons of JAMstack and how it compares to WordPress.',
 		date: '02/11/2023',
@@ -133,9 +140,15 @@ const events = [
 								{event.name}
 							</a>
 						</h3>
-						<small class="text-slate-500" title={event.date}>
-							{toNow(event.date)}
-						</small>
+						<div>
+							<small class="text-slate-500" title={event.date}>
+								🗓️ {toNow(event.date)}
+							</small>
+							<span style="margin: 0 5px;">&middot;</span>
+							<small class="text-slate-500" title={event.location}>
+								📍 {event.location}
+							</small>
+						</div>
 
 						<p class="text-slate-800" transition:name={'body' + event.name}>
 							{event.description}
