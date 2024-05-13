@@ -1,9 +1,9 @@
 ---
 import { getCollection } from 'astro:content'
-import Layout from '../../layouts/Layout.astro'
+import Layout from '@layouts/Layout.astro'
 
-const allBlogPosts = await getCollection('blog', ({ data }) => {
-	return data.categories?.includes('Web Development') && !data?.draft
+const allBlogPosts = await getCollection('archives', ({ data }) => {
+	return !data.categories?.includes('Web Development') && !data?.draft
 })
 const sortedBlogPosts = allBlogPosts?.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 ---
@@ -13,7 +13,7 @@ const sortedBlogPosts = allBlogPosts?.sort((a, b) => b.data.date.getTime() - a.d
 	<p>I love you and coding.</p>
 
 	<div class="section">
-		<h2 class="primaryHeading">LATEST</h2>
+		<h2 class="primaryHeading">ARCHIVES</h2>
 
 		{
 			sortedBlogPosts.map((post) => (
@@ -32,8 +32,8 @@ const sortedBlogPosts = allBlogPosts?.sort((a, b) => b.data.date.getTime() - a.d
 		}
 
 		<div>
-			It seems you have reached the end and have gone through all the blog posts. Didn't you find
-			what you're looking for? Perhaps, <a href="/blog">try going to the archives.</a>
+			It seems you have reached the end of all these blog archives. Didn't you find what you're
+			looking for? Perhaps, <a href="/blog">try going to the latest blog posts.</a>
 		</div>
 	</div>
 </Layout>
