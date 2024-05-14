@@ -3,7 +3,7 @@ import Layout from '@layouts/Layout.astro'
 import Logo from '@components/Logo.astro'
 ---
 
-<Layout title="Dorell James">
+<Layout title="Full Stack Developer in Cebu City">
 	<main>
 		<div class="flex flex-col justify-center text-center">
 			<Logo class="mb-0" />
@@ -11,28 +11,38 @@ import Logo from '@components/Logo.astro'
 		</div>
 
 		<div class="cardNav">
-			<h2><a href="/blog">Blog</a></h2>
+			<h2 transition:name="page-heading-about">
+				<a href="/about">About</a>
+			</h2>
+			<p>1 short desc - 2 focus - 101% focused</p>
+		</div>
+
+		<div class="cardNav">
+			<h2 transition:name="page-heading-blog">
+				<a href="/blog">Blog</a>
+			</h2>
 			<p>2 new - 1 in progress - 12 overall</p>
 		</div>
 
 		<div class="cardNav">
-			<h2><a href="/events">Events</a></h2>
+			<h2 transition:name="page-heading-events">
+				<a href="/events">Events</a>
+			</h2>
 			<p>2 upcoming - 1 in progress - 12 left this year</p>
 		</div>
 
 		<div class="cardNav">
-			<h2><a href="/testing">Testing</a></h2>
+			<h2 transition:name="page-heading-testing">
+				<a href="/testing">Testing</a>
+			</h2>
 			<p>1 workshop - 12 videos - 3 in progress - 23% overall</p>
 		</div>
 
 		<div class="cardNav">
-			<h2><a href="/sanity-io">Sanity.io</a></h2>
+			<h2 transition:name="page-heading-sanity-io">
+				<a href="/sanity-io">Sanity.io</a>
+			</h2>
 			<p>5 projects - 3 in progress - 20%</p>
-		</div>
-
-		<div class="cardNav">
-			<h2><a href="/about">About</a></h2>
-			<p>1 short desc - 2 focus - 101% focused</p>
 		</div>
 	</main>
 </Layout>
@@ -41,6 +51,7 @@ import Logo from '@components/Logo.astro'
 	h1,
 	h2 {
 		font-family: 'DM Serif Text', serif;
+		margin-bottom: 0;
 	}
 
 	h1 {
@@ -49,6 +60,10 @@ import Logo from '@components/Logo.astro'
 
 	h2 {
 		font-size: 42px;
+	}
+
+	p {
+		margin-top: 0;
 	}
 
 	/* @keyframes moveFirst {

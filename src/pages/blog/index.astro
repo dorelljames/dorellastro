@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content'
 import Layout from '../../layouts/Layout.astro'
-import Logo from '@components/Logo.astro'
 
 const allBlogPosts = await getCollection('blog', ({ data }) => {
 	return data.categories?.includes('Web Development') && !data?.draft
@@ -21,22 +20,22 @@ const sortedBlogPosts = allBlogPosts?.sort((a, b) => b.data.date.getTime() - a.d
 				sortedBlogPosts.map((post) => (
 					<div class="projectCard">
 						{/* {post.data?.featured_image && <img class="cover" src={post.data?.featured_image?.src} />} */}
-						<h3 data-name={'post--' + post.slug} transition:name={'post--' + post.slug}>
+						<h3>
 							<a href={`/blog/${post?.slug}`} data-astro-reload>
 								{post.data.title}
 							</a>
 						</h3>
 						<div>
-							<p transition:name={'body' + post.data.description}>{post.data.description}</p>
+							<p>{post.data.description}</p>
 						</div>
 					</div>
 				))
 			}
 
-			<div>
-				It seems you have reached the end and have gone through all the blog posts. Didn't you find
-				what you're looking for? Perhaps, <a href="/blog">try going to the archives.</a>
-			</div>
+			<p>
+				It seems you have reached the end and have gone through all the blog posts. Didn't find what
+				you're looking for? Perhaps, <a href="/blog">try going to the archives →</a>.
+			</p>
 		</div>
 	</main>
 </Layout>

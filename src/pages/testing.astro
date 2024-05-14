@@ -1,0 +1,85 @@
+---
+import Layout from '@layouts/Layout.astro'
+import { toNow, isAfterToday } from 'src/utils'
+
+const projects = [
+	{
+		name: 'Automated Testing Workshop',
+		description:
+			'An introductory workshop for testing - static analysis, unit, integration and end-to-end testing.',
+		dateStarted: '04/01/2024',
+		dateTargetEnd: '05/04/2024',
+		percentageDone: 100,
+		link: ``
+	}
+]
+---
+
+<Layout title="My love for Testing">
+	<main>
+		<h1 transition:name="page-heading-sanity-io">Testing 🙌</h1>
+
+		<p>As a dev, one of the often overlooked thing is testing.</p>
+
+		<div class="section">
+			<h2 class="primaryHeading">WORKSHOPS</h2>
+
+			{
+				projects.map((project) => (
+					<div class="projectCard">
+						<h3 data-name={'heading' + project.name} transition:name={'heading' + project.name}>
+							<a href={project?.link}>{project.name}</a>
+						</h3>
+						<div>
+							<small class="text-slate-500" title={project.dateTargetEnd}>
+								{toNow(project.dateTargetEnd)
+									? `${isAfterToday(project.dateTargetEnd) ? `🗓️ Due in` : '✅ Ended '} ${toNow(project.dateTargetEnd)}`
+									: '🗓️ To Be Started'}
+							</small>
+							<span style="margin: 0 5px;">&middot;</span>
+							<small class="text-slate-500">{project.percentageDone}%</small>
+						</div>
+
+						<p transition:name={'body' + project.name}>{project.description}</p>
+					</div>
+				))
+			}
+		</div>
+	</main>
+</Layout>
+
+<style>
+	.section {
+		margin-top: 15rem;
+	}
+
+	h1 {
+		font-family: 'DM Serif Text', serif;
+		font-size: 42px;
+		font-weight: 500;
+	}
+
+	.primaryHeading {
+		letter-spacing: 12px;
+		font-weight: 400;
+	}
+
+	.projectCard {
+		margin-top: 5rem;
+		margin-bottom: 5rem;
+	}
+
+	.projectCard > h3,
+	.projectCard > h3 > a {
+		font-family: 'DM Serif Text', serif;
+		font-size: 32px;
+		font-weight: 300;
+		text-decoration: none;
+		color: #000;
+	}
+
+	p {
+		line-height: 200%;
+		margin: 24px 0;
+	}
+</style>

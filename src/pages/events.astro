@@ -112,7 +112,7 @@ const events = [
 
 <Layout title="Tech Events in Cebu">
 	<main>
-		<h1>Awesome Events 🙌</h1>
+		<h1 transition:name="page-heading-events">Awesome Events 🙌</h1>
 
 		<p>
 			Aside from organizing events, I also give talks and conduct workshops as a way to share back
@@ -135,7 +135,7 @@ const events = [
 			{
 				events.map((event) => (
 					<div class="projectCard">
-						<h3 data-name={'heading' + event.name} transition:name={'heading' + event.name}>
+						<h3>
 							<a href={event?.link} target="_blank" rel="nofollow">
 								{event.name}
 							</a>
@@ -150,9 +150,7 @@ const events = [
 							</small>
 						</div>
 
-						<p class="text-slate-800" transition:name={'body' + event.name}>
-							{event.description}
-						</p>
+						<p class="text-slate-800">{event.description}</p>
 					</div>
 				))
 			}

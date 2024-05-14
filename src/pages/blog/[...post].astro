@@ -22,13 +22,13 @@ const { post } = Astro.props
 const { Content } = await post.render()
 ---
 
-<Layout title="All posts">
+<Layout title={post.data.title}>
 	<main>
-		<div class="mb-12">
+		<div class="mb-32">
 			<Logo />
 		</div>
 
-		<h1 data-name={'post--' + post.slug} transition:name={'post--' + post.slug}>
+		<h1>
 			{post.data.title}
 		</h1>
 		<Prose>
