@@ -9,43 +9,41 @@ const sortedBlogPosts = allBlogPosts?.sort((a, b) => b.data.date.getTime() - a.d
 ---
 
 <Layout title="Archived Posts">
-	<h1 transition:name="page-heading-blog-archives" transition:persist>
-		Personal blog by @dorelljames
-	</h1>
-	<p transition:persist>I love you and coding.</p>
+	<main>
+		<h1 transition:name="page-heading-blog-archives" transition:persist>
+			Post archives by @dorelljames
+		</h1>
+		<p transition:persist>I love you and coding.</p>
 
-	<div class="section">
-		<h2 class="primaryHeading">ARCHIVES</h2>
+		<div class="section">
+			<h2 class="primaryHeading">ARCHIVES</h2>
 
-		{
-			sortedBlogPosts.map((post) => (
-				<div class="projectCard">
-					<h3 transition:name={`post-heading-archives-${post.slug}`}>
-						<a href={`/blog/archives/${post?.slug}`}>{post.data.title}</a>
-					</h3>
-					<div>
-						<p>{post.data.description || 'You may read more to find out about it'}</p>
+			{
+				sortedBlogPosts.map((post) => (
+					<div class="projectCard">
+						<h3 transition:name={`post-heading-archives-${post.slug}`}>
+							<a href={`/blog/archives/${post?.slug}`}>{post.data.title}</a>
+						</h3>
+						<div>
+							<p>{post.data.description || 'You may read more to find out about it'}</p>
+						</div>
 					</div>
-				</div>
-			))
-		}
-	</div>
+				))
+			}
+		</div>
 
-	<div class="mt-12 border-t-2 border-dotted">
-		<p>
-			It seems you have reached the end of all these blog archives. Didn't you find what you're
-			looking for? Perhaps, <a href="/blog" class="underline"
-				>try going to the latest blog posts →</a
-			>.
-		</p>
-	</div>
+		<div class="mt-12 border-t-2 border-dotted">
+			<p>
+				It seems you have reached the end of all these blog archives. Didn't you find what you're
+				looking for? Perhaps, <a href="/blog" class="underline"
+					>try going to the latest blog posts →</a
+				>.
+			</p>
+		</div>
+	</main>
 </Layout>
 
 <style>
-	.section {
-		margin-top: 15rem;
-	}
-
 	.cover {
 		max-width: 75%;
 	}

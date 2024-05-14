@@ -2,6 +2,9 @@
 import Layout from '@layouts/Layout.astro'
 import { toNow } from 'src/utils'
 
+import { Image } from 'astro:assets'
+import meTalking from '@images/talk.jpg'
+
 const events = [
 	{
 		name: 'Automated Testing Workshop',
@@ -130,14 +133,21 @@ const events = [
 
 		<p>
 			Aside from organizing events, I also give talks and conduct workshops as a way to share back
-			to the community. I've spoken at <a
+			to the community. I've spoken at the latest <a
+				href="https://cebu.wordcamp.org/2023/session/wordpress-jamstack/"
+				target="_blank"
+				rel="nofollow"
+				class="underline">Cebu Wordcamp 2023</a
+			>, last <a
 				href="https://2019.cebu.wordcamp.org/speakers/#wcorg-speaker-dorell-james-galang"
 				target="_blank"
-				rel="nofollow">WordCamp 2019</a
+				rel="nofollow"
+				class="underline">Cebu WordCamp 2019</a
 			>, did a workshop at <a
 				href="https://www.facebook.com/events/270482970543471/"
 				target="_blank"
-				rel="nofollow">Facebook Developer Circle event</a
+				rel="nofollow"
+				class="underline">Facebook Developer Circle event</a
 			>, and lead organized / participated in other events.
 		</p>
 
@@ -173,10 +183,6 @@ const events = [
 </Layout>
 
 <style>
-	.section {
-		margin-top: 15rem;
-	}
-
 	h1 {
 		font-family: 'DM Serif Text', serif;
 		font-size: 42px;

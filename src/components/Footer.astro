@@ -1,8 +1,8 @@
 ---
-
+const currentPath = Astro.url.pathname
 ---
 
-<footer>
+<footer class={['/'].includes(currentPath) ? 'text-center' : ''}>
 	<p>
 		Copyright &copy; {new Date().getFullYear()}, d||ell. Build with <a
 			href="https://astro.build/"
