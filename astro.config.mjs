@@ -1,22 +1,24 @@
-import { defineConfig } from "astro/config";
-import { defineConfig, passthroughImageService } from "astro/config";
-import tailwind from "@astrojs/tailwind";
-import rehypeExternalLinks from "rehype-external-links";
+import { defineConfig } from 'astro/config'
+import { defineConfig, passthroughImageService } from 'astro/config'
+import tailwind from '@astrojs/tailwind'
+import rehypeExternalLinks from 'rehype-external-links'
+import sitemap from '@astrojs/sitemap'
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind()],
-  image: {
-    service: passthroughImageService(),
-  },
-  markdown: {
-    rehypePlugins: [
-      [
-        rehypeExternalLinks,
-        {
-          content: { type: "text", value: " ↗" },
-        },
-      ],
-    ],
-  },
-});
+	site: 'https://www.dorelljames.com',
+	integrations: [tailwind(), sitemap()],
+	image: {
+		service: passthroughImageService()
+	},
+	markdown: {
+		rehypePlugins: [
+			[
+				rehypeExternalLinks,
+				{
+					content: { type: 'text', value: ' ↗' }
+				}
+			]
+		]
+	}
+})
