@@ -4,7 +4,7 @@ author: Dorell James
 type: post
 date: 2017-12-06T15:33:50+00:00
 url: /web-development/wordpress-messenger-customer-chat-plugin-installation/
-featured_image: "./banner-772×250-2.jpg"
+featured_image: './banner-772×250-2.jpg'
 categories:
   - Web Development
 tags:
@@ -12,6 +12,7 @@ tags:
   - messenger chat
   - messenger customer chat plugin
   - wordpress messenger
+description: Here's how you install WordPress Messenger Customer Chat Plugin in your WordPress site so you can add Facebook's Customer Chat plugin today.
 ---
 
 So finally I have [WordPress Messenger Customer Chat Plugin (WPMCCP)][1] listed in WordPress Plugins directory. Weeee. Awesome and really cool. <span class="wp-font-emots-emo-happy"></span>

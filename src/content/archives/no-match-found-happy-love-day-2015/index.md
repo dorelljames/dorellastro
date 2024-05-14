@@ -4,12 +4,13 @@ author: Dorell James
 type: post
 date: 2015-02-14T13:24:00+00:00
 url: /personal/no-match-found-happy-love-day-2015/
-featured_image: "./hands-forming-a-heart-14251.jpg"
+featured_image: './hands-forming-a-heart-14251.jpg'
 categories:
   - Personal
 tags:
   - love
   - valentines
+description: A short story about love. Happy hearts day this year 2015
 ---
 
 _No match found_

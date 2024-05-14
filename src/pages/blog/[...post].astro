@@ -28,7 +28,7 @@ const { Content } = await post.render()
 			<Logo />
 		</div>
 
-		<h1>
+		<h1 transition:name={`post-heading-${post.slug}`}>
 			{post.data.title}
 		</h1>
 		<Prose>

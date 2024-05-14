@@ -5,11 +5,12 @@ type: post
 date: 2015-02-24T04:14:30+00:00
 old_url: /web-development/abantecart-seo-urls-on-nginx-server/
 url: abantecart-seo-urls-on-nginx-server/
-featured_image: "./abantecart-seo-settings-banner.png"
+featured_image: './abantecart-seo-settings-banner.png'
 categories:
   - Web Development
 tags:
   - abantecart
+description: Here's how you can configure AbanteCart with Apache server.
 ---
 
 I just have the privilege to learn more about AbanteCart and by default the SEO URL's need to be turned on to make use of it. If you are using Apache as your server with `mod_rewrite` enabled, all you have to do is rename `htaccess.txt` to `.htaccess` in your AbanteCart\'s `public_html` folder and then turn on the **Use SEO URL's** in System Settings.

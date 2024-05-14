@@ -6,6 +6,7 @@ date: 2019-02-16T13:52:54+00:00
 url: /web-development/laravel-valet-increase-max-upload-file-size/
 categories:
   - Web Development
+description: Here's how you can increase max upload file size for your Laravel Valet instance.
 tags:
   - laravel
   - laravel valet

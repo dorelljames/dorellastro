@@ -4,9 +4,10 @@ author: Dorell James
 type: post
 date: 2019-01-05T13:35:04+00:00
 url: /personal/for-2019 - wait-this-ones-2018/
-featured_image: "./luca-zanon-38843-unsplash.jpg"
+featured_image: './luca-zanon-38843-unsplash.jpg'
 categories:
   - Personal
+description: They say, don’t share your goals or end up not achieving it. Anonymous Life can turn around in an instant One day, news broke, one of my…
 ---
 
 > They say, don’t share your goals or end up not achieving it.

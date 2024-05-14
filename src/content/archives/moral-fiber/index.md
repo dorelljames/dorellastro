@@ -4,11 +4,12 @@ author: Dorell James
 type: post
 date: 2015-05-04T23:36:46+00:00
 url: /personal/moral-fiber/
-featured_image: "./original_504400_BmbXxIr7H4icQDKc2XUfnH4x8.jpg"
+featured_image: './original_504400_BmbXxIr7H4icQDKc2XUfnH4x8.jpg'
 categories:
   - Personal
 tags:
   - moral fiber
+description: Finding that one thing you really care about. That one special thing that means more to you than anything else in the world
 ---
 
 It takes effort to build something but it's useless if it's not appreciated. And even worst if it's not meant to be. It's like you're trying to fit that square peg in a round hole. We don't hold control to whatever the person thinks, believes or chooses to do. Let them have the freedom to choose what they like and respect their decision. Because if you love them, even it hurts more than hell, you must be happy to accept what they choose to. Things won't be easy for sure but if that's what happiness is for them, let it be. You choose to open your heart and share your life with someone and it doesn't matter if they hurt you; what matters is that they made you happy somehow. Love doesn't need to expect something in return. Love is love and I don't know how to describe it more exactly but one thing's for sure, it has the power to turn our worlds upside down.

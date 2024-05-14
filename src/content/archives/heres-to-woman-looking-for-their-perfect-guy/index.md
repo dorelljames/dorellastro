@@ -4,9 +4,10 @@ author: Dorell James
 type: post
 date: 2015-11-25T09:26:24+00:00
 url: /personal/heres-to-woman-looking-for-their-perfect-guy/
-featured_image: "./perfect-guy2.jpg"
+featured_image: './perfect-guy2.jpg'
 categories:
   - Personal
+description: Here are 5 things every woman needs to know in order to attract the ‘perfect guy’
 ---
 
 Here are 5 things every woman needs to know in order to attract the **'perfect guy'**.

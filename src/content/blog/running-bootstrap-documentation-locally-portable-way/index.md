@@ -4,9 +4,10 @@ author: Dorell James
 type: post
 date: 2015-05-16T15:11:32+00:00
 url: /web-development/running-bootstrap-documentation-locally-portable-way/
-featured_image: "./bootstrap.png"
+featured_image: './bootstrap.png'
 categories:
   - Web Development
+description: Here's how you can get Boostrap documentation in your local machine running offline.
 ---
 
 At times we need to able to access web resources such as documentations, websites, apps and run them locally on our machine either because the internet is wonky or we might need those at times when we go to areas where internet is not available. But hey who goes to a dark forest all alone and why would you that? <span class="wp-font-emots-emo-happy"></span>

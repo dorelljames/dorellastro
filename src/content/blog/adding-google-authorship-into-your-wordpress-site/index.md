@@ -5,7 +5,7 @@ type: post
 date: 2013-09-11T05:33:29+00:00
 old_url: /web-development/adding-google-authorship-into-your-wordpress-site/
 url: adding-google-authorship-into-your-wordpress-site/
-featured_image: "./google_authorship.png"
+featured_image: './google_authorship.png'
 categories:
   - Search Engine Optimization
   - Web Development
@@ -14,6 +14,7 @@ tags:
   - google authorship
   - seo
   - wordpress
+description: Here's how you can quickly add Google Authorship on your site without a need to use a plugin.
 ---
 
 Based from Craig Fifield's article on <a href="http://www.craigfifield.com/google-authorship-wordpress.htm" target="_blank" rel="nofollow">How-To Add Google Authorship To WordPress Correctly</a> I was able to put a better way (hopefully) of doing the said thing.

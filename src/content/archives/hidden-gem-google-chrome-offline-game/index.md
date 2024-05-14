@@ -1,24 +1,11 @@
 ---
-title: "Hidden Gem: Google Chrome’s Offline Game"
+title: 'Hidden Gem: Google Chrome’s Offline Game'
 author: Dorell James
 type: post
 date: 2015-01-21T03:35:44+00:00
 url: /personal/hidden-gem-google-chrome-offline-game/
-featured_image: "./google-chrome-dinosaur-animate.gif"
-thb_meta_bigfoot_pageheader_layout:
-  - left
-thb_meta_bigfoot_pageheader_height:
-  - pageheader-big
-thb_meta_bigfoot_background_opacity:
-  - 0.05
-thb_meta_bigfoot_sidebar_position:
-  - sidebar-right
-thb_meta_bigfoot_post_related:
-  - 1
-thb_meta_bigfoot_post_related_number:
-  - 4
-thb_meta_bigfoot_post_related_thumb:
-  - 1
+featured_image: './google-chrome-dinosaur-animate.gif'
+description: Enjoy Google Chrome’s offline game. Fly fly fly and away. I mean jump.
 categories:
   - Personal
 ---

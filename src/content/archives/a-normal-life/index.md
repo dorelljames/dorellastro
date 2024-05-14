@@ -4,11 +4,12 @@ author: Dorell James
 type: post
 date: 2014-09-18T17:13:03+00:00
 url: /personal/a-normal-life/
-featured_image: "./water-flow.jpg"
+featured_image: './water-flow.jpg'
 categories:
   - Personal
 tags:
   - life
+description: What are we really up to? Do you think our lives are just plain as what and how it appears?
 ---
 
 What are we really up to? Do you think our lives are just plain as what and how it appears? I've come to think of this and perhaps I'm right about it; no, it's true for I can testify it and you can shoot me if I'm wrong about this. It goes with the saying,

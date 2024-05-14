@@ -10,8 +10,8 @@ const sortedBlogPosts = allBlogPosts?.sort((a, b) => b.data.date.getTime() - a.d
 
 <Layout title="All posts">
 	<main>
-		<h1 transition:name="page-heading-blog">Personal blog by @dorelljames</h1>
-		<p>I love you and coding.</p>
+		<h1 transition:name="page-heading-blog" transition:persist>Personal blog by @dorelljames</h1>
+		<p transition:persist>I love you and coding.</p>
 
 		<div class="section">
 			<h2 class="primaryHeading">LATEST</h2>
@@ -19,11 +19,11 @@ const sortedBlogPosts = allBlogPosts?.sort((a, b) => b.data.date.getTime() - a.d
 			{
 				sortedBlogPosts.map((post) => (
 					<div class="projectCard">
-						{/* {post.data?.featured_image && <img class="cover" src={post.data?.featured_image?.src} />} */}
-						<h3>
-							<a href={`/blog/${post?.slug}`} data-astro-reload>
-								{post.data.title}
-							</a>
+						{/* {post.data?.featured_image && (
+							<img class="cover" src={post.data?.featured_image?.src} />
+						)} */}
+						<h3 transition:name={`post-heading-${post.slug}`}>
+							<a href={`/blog/${post?.slug}`}>{post.data.title}</a>
 						</h3>
 						<div>
 							<p>{post.data.description}</p>
@@ -31,10 +31,14 @@ const sortedBlogPosts = allBlogPosts?.sort((a, b) => b.data.date.getTime() - a.d
 					</div>
 				))
 			}
+		</div>
 
+		<div class="mt-12 border-t-2 border-dotted">
 			<p>
 				It seems you have reached the end and have gone through all the blog posts. Didn't find what
-				you're looking for? Perhaps, <a href="/blog">try going to the archives →</a>.
+				you're looking for? Perhaps, <a href="/blog/archives" class="underline"
+					>try going to the archives →</a
+				>.
 			</p>
 		</div>
 	</main>

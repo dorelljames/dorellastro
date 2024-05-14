@@ -1,11 +1,12 @@
 ---
-title: "For 2016: Start saying “Thank You” instead of “Sorry”"
+title: 'For 2016: Start saying “Thank You” instead of “Sorry”'
 author: Dorell James
 type: post
 date: 2015-12-26T09:00:01+00:00
 url: /personal/start-saying-thank-you-instead-of-sorry/
 categories:
   - Personal
+description: 'How often do you tell someone you are “Sorry”? Well, it’s always a good thing to be aware of the things we fall short of. But sometimes…'
 ---
 
 How often do you tell someone you are **&#8220;Sorry&#8221;**?

@@ -4,13 +4,14 @@ author: Dorell James
 type: post
 date: 2014-09-13T14:26:05+00:00
 url: /personal/is-getting-rich-worth-it/
-featured_image: "./money-falling.jpg"
+featured_image: './money-falling.jpg'
 categories:
   - Personal
 tags:
   - money
   - rich
   - wealth
+description: For those who aims to get rich and/or wealthy. You might find out whether the said goal is really worth it.
 ---
 
 Let's face it, &#8220;who doesn't want to get rich?&#8221;. Well, not maybe all but I believe most would want to. But do you think is getting rich worth it? Most get the idea that money will make their lives easier. While in all honesty it's true, there are really some downsides worth noting that most fail to see.

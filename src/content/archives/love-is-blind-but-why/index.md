@@ -4,9 +4,10 @@ author: Dorell James
 type: post
 date: 2016-02-13T16:00:05+00:00
 url: /personal/love-is-blind-but-why/
-featured_image: "./lamp.jpg"
+featured_image: './lamp.jpg'
 categories:
   - Personal
+description: There is a very interesting story in Greek mythology from where the term “Love is blind” originates. It’s the story of Cupid (the god of…
 ---
 
 There is a very interesting story in Greek mythology from where the term &#8220;Love is blind&#8221; originates. It's the story of Cupid (the god of love) and Psyche
