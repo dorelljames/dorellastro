@@ -7,21 +7,36 @@ import Footer from '@components/Footer.astro'
 
 interface Props {
 	title: string
+	description?: string
 }
 
-const { title } = Astro.props
+const { title, description } = Astro.props
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" href="/favicon.png" />
 		<link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title} | d||ell</title>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-39533448-1"></script>
+		<script is:inline>
+			if (true) {
+				window.dataLayer = window.dataLayer || []
+				function gtag() {
+					window.dataLayer && window.dataLayer.push(arguments)
+				}
+				gtag('js', new Date())
+
+				gtag('config', 'UA-39533448-1')
+				gtag('config', 'G-9Y1N7DRP5N')
+			}
+		</script>
+
 		<ViewTransitions />
 	</head>
 	<body>
