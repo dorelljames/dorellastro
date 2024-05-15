@@ -1,7 +1,9 @@
 ---
 import Layout from '@layouts/Layout.astro'
-
-const { title } = Astro.props
+import Prose from '@components/Prose.astro'
+import { Image } from 'astro:assets'
+import ExampleImage from './example.png'
+import { toNow } from 'src/utils'
 ---
 
 <Layout title="UI Schema Generator">
@@ -9,10 +11,34 @@ const { title } = Astro.props
 		<h1>UI SCHEMA GENERATOR</h1>
 		<p>A beautiful drag and drop generator for your schemas in Sanity.io.</p>
 
-		<p>
-			We've built many schemas but coded it. While it's easier for devs, with convenience there
-			comes a price of being easy to
-		</p>
+		<Prose>
+			<p>
+				While it's easier for devs to do content modeling, it's not so for others. I built this tool
+				for those who want to quickly get into modeling their data by visualizing. It's just easier
+				if you don't have to think much, right?
+			</p>
+
+			<Image src={ExampleImage} alt="Sanity UI Schema Generator" />
+
+			<a>Demo link will be available soon.</a>
+
+			<hr />
+
+			<small>UPDATES</small>
+
+			<ul>
+				<li>
+					<p>
+						Created <a
+							target="_blank"
+							href="https://www.figma.com/design/kEpcPu54DhJ7GXvJ7Csz4Y/Sanity-Content-Builder?node-id=1%3A83&t=bcbHsxZFSWACshNc-1"
+							>initial mockup</a
+						> -
+						<small>{toNow(new Date('05/15/24 09:15 AM'))}</small>
+					</p>
+				</li>
+			</ul>
+		</Prose>
 	</main>
 </Layout>
 
