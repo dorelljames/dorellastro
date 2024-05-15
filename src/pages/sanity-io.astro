@@ -1,4 +1,5 @@
 ---
+import ExternalIcon from '@components/ExternalIcon.astro'
 import Layout from '@layouts/Layout.astro'
 import { toNow } from 'src/utils'
 
@@ -92,9 +93,9 @@ const plugins = [
 				plugins.map((plugin) => (
 					<div class="projectCard">
 						<h3 data-name={'heading' + plugin.name} transition:name={'heading' + plugin.name}>
-							<a href={plugin?.link} target="_blank">
+							<a href={plugin?.link} target="_blank" class="flex gap-3">
 								{plugin.name}
-								{plugin?.isExternalLink && '↗'}
+								{plugin?.isExternalLink && <ExternalIcon />}
 							</a>
 						</h3>
 						<p>{plugin.description}</p>
