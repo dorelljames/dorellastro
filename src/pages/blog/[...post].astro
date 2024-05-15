@@ -20,7 +20,6 @@ export const getStaticPaths = (async () => {
 
 const { post } = Astro.props
 const { Content, ...rest } = await post.render()
-console.log('🚀 ~ rest:', rest)
 ---
 
 <Layout title={post.data.title} description={post.data?.description}>
