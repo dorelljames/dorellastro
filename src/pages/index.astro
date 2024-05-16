@@ -12,35 +12,35 @@ import Logo from '@components/Logo.astro'
 
 		<div class="cardNav">
 			<h2 transition:name="page-heading-about">
-				<a href="/about">About</a>
+				<a class="underline-animation" href="/about">About</a>
 			</h2>
 			<p>1 short desc - 2 focus - 101% focused</p>
 		</div>
 
 		<div class="cardNav">
 			<h2 transition:name="page-heading-blog">
-				<a href="/blog">Blog</a>
+				<a class="underline-animation" href="/blog">Blog</a>
 			</h2>
 			<p>2 new - 1 in progress - 12 overall</p>
 		</div>
 
 		<div class="cardNav">
 			<h2 transition:name="page-heading-events">
-				<a href="/events">Events</a>
+				<a class="underline-animation" href="/events">Events</a>
 			</h2>
 			<p>2 upcoming - 1 in progress - 12 left this year</p>
 		</div>
 
 		<div class="cardNav">
 			<h2 transition:name="page-heading-testing">
-				<a href="/testing">Testing</a>
+				<a class="underline-animation" href="/testing">Testing</a>
 			</h2>
 			<p>1 workshop - 12 videos - 3 in progress - 23% overall</p>
 		</div>
 
 		<div class="cardNav">
 			<h2 transition:name="page-heading-sanity-io">
-				<a href="/sanity-io">Sanity.io</a>
+				<a class="underline-animation" href="/sanity-io">Sanity.io</a>
 			</h2>
 			<p>5 projects - 2 in progress - 40%</p>
 		</div>
@@ -151,5 +151,31 @@ import Logo from '@components/Logo.astro'
 
 	.cardNav {
 		text-align: center;
+	}
+
+	.underline-animation {
+		position: relative;
+		color: black; /* or any color you want for the text */
+		text-decoration: none; /* removes default underline */
+		overflow: hidden; /* ensures the pseudo-elements do not overflow */
+	}
+
+	.underline-animation::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 0;
+		height: 3px; /* thickness of the underline */
+		background-color: #a855f7; /* color of the underline */
+		transition: width 0.5s ease-in-out; /* smooth transition for the underline */
+	}
+
+	.underline-animation:hover::after {
+		width: 100%; /* full width on hover */
+	}
+
+	.underline-animation:hover::before {
+		opacity: 1; /* make arrow visible after underline animation */
 	}
 </style>
