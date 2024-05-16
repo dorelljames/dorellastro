@@ -66,89 +66,6 @@ import Logo from '@components/Logo.astro'
 		margin-top: 0;
 	}
 
-	/* @keyframes moveFirst {
-		0% {
-			transform: translate(0px, 0px);
-		}
-		25% {
-			transform: translate(10%, 20%);
-		}
-		50% {
-			transform: translate(-10%, 40%);
-		}
-		75% {
-			transform: translate(20%, -20%);
-		}
-		100% {
-			transform: translate(0px, 0px);
-		}
-	}
-
-	@keyframes moveSecond {
-		0% {
-			transform: translate(0px, 0px);
-		}
-		25% {
-			transform: translate(-20%, 10%);
-		}
-		50% {
-			transform: translate(20%, -30%);
-		}
-		75% {
-			transform: translate(-30%, 20%);
-		}
-		100% {
-			transform: translate(0px, 0px);
-		}
-	}
-
-	@keyframes moveThird {
-		0% {
-			transform: translate(0px, 0px);
-		}
-		25% {
-			transform: translate(30%, -10%);
-		}
-		50% {
-			transform: translate(-40%, 20%);
-		}
-		75% {
-			transform: translate(10%, 30%);
-		}
-		100% {
-			transform: translate(0px, 0px);
-		}
-	} */
-
-	/* .cardNav:nth-child(1) {
-		position: absolute;
-		top: 30;
-		left: 15;
-		animation: moveFirst 10s infinite;
-		text-align: center;
-	}
-
-	.cardNav:nth-child(2) {
-		position: absolute;
-		top: 30;
-		right: 15;
-		animation: moveSecond 10s infinite;
-		text-align: center;
-	}
-
-	.cardNav:nth-child(3) {
-		position: absolute;
-		animation: moveThird 10s infinite;
-		text-align: center;
-	}
-
-	.cardNav {
-		position: absolute;
-	} */
-
-	.centered {
-	}
-
 	.cardNav {
 		text-align: center;
 	}
@@ -158,6 +75,7 @@ import Logo from '@components/Logo.astro'
 		color: black; /* or any color you want for the text */
 		text-decoration: none; /* removes default underline */
 		overflow: hidden; /* ensures the pseudo-elements do not overflow */
+		transition: transform 0.1s ease; /* smooth transition for lifting up */
 	}
 
 	.underline-animation::after {
@@ -166,8 +84,9 @@ import Logo from '@components/Logo.astro'
 		left: 0;
 		bottom: 0;
 		width: 0;
-		height: 3px; /* thickness of the underline */
-		background-color: #a855f7; /* color of the underline */
+		height: 2px; /* thickness of the underline */
+		background-image: linear-gradient(to right, #a855f7 50%, transparent 50%);
+		background-size: 10px 2px; /* creates the dotted effect */
 		transition: width 0.5s ease-in-out; /* smooth transition for the underline */
 	}
 
@@ -175,7 +94,7 @@ import Logo from '@components/Logo.astro'
 		width: 100%; /* full width on hover */
 	}
 
-	.underline-animation:hover::before {
-		opacity: 1; /* make arrow visible after underline animation */
+	.underline-animation:active {
+		transform: translateY(-5px); /* lifts the link up by 2 pixels */
 	}
 </style>
