@@ -23,4 +23,6 @@ There are basically two things that we need to do:
 
 Sounds easy, right? Here's a raw video walkthrough I created as guide. It might different from your setup but I hope you guys get the idea.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/P0tmGl9v3NE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="container">
+  <iframe class="responsive-iframe" src="https://www.youtube.com/embed/P0tmGl9v3NE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>

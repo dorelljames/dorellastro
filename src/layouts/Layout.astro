@@ -68,6 +68,47 @@ const { title, description } = Astro.props
 			.section {
 				margin: 15rem 0;
 			}
+
+			.underline-animation {
+				position: relative;
+				color: black; /* or any color you want for the text */
+				text-decoration: none; /* removes default underline */
+				overflow: hidden; /* ensures the pseudo-elements do not overflow */
+			}
+
+			.underline-animation::after {
+				content: '';
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 0;
+				height: 2px; /* thickness of the underline */
+				background-image: linear-gradient(to right, #a855f7 50%, transparent 50%);
+				background-size: 8px 2px; /* creates the dotted effect */
+				transition: width 0.5s ease-in-out; /* smooth transition for the underline */
+			}
+
+			.underline-animation:hover::after {
+				width: 100%; /* full width on hover */
+			}
+
+			.container {
+				position: relative;
+				overflow: hidden;
+				width: 100%;
+				padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+			}
+
+			/* Then style the iframe to fit in the container div with full height and width */
+			.responsive-iframe {
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				width: 100%;
+				height: 100%;
+			}
 		</style>
 
 		<script>
