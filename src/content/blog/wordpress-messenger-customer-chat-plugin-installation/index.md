@@ -21,7 +21,9 @@ If you're not a fan of using WordPress plugins, here's [how to add Messenger Cus
 
 And now, below is a short video of how to install and quickly set it up on your site. <span class="wp-font-emots-emo-happy"></span>
 
-<iframe width="1160" height="679" src="https://www.useloom.com/embed/a1f9ad9860c24f7daaec9e1dfecdf24f" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<div class="container">
+  <iframe class="responsive-iframe" src="https://www.useloom.com/embed/a1f9ad9860c24f7daaec9e1dfecdf24f" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div>
 
 [1]: https://wordpress.org/plugins/wp-messenger-customer-chat/
 [2]: http://dorellwp.localhost/web-development/adding-messenger-customer-chat-plugin-wordpress-site/

@@ -3,7 +3,7 @@ title: Should You Move On From WordPress?
 author: Dorell James
 type: post
 date: 2019-04-17T02:10:36+00:00
-url: ""
+url: ''
 categories:
   - Web Development
 tags:
@@ -42,7 +42,9 @@ So okay, static websites are fast, secure, cheap and simple. Fast because static
 
 So yeah, enough with all those static vs dynamic comparison. Let me take you one step further. Enter play a video of how one company moved their website from WordPress and experienced the benefits static sites are claiming to provide.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/rB4Cl5LSe2c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="container">
+  <iframe class="responsive-iframe" width="560" height="315" src="https://www.youtube.com/embed/rB4Cl5LSe2c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 I hope you've had enough information about the new trend of "static" but I don't want to leave them to you as static because in today's development because it's no longer really static as static as it is. Remember this word, "JAMstack", it's JavaScript, API's and Markups.
 
