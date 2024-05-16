@@ -22,7 +22,9 @@ const sortedBlogPosts = allBlogPosts?.sort((a, b) => b.data.date.getTime() - a.d
 				sortedBlogPosts.map((post) => (
 					<div class="projectCard">
 						<h3 transition:name={`post-heading-archives-${post.slug}`}>
-							<a href={`/blog/archives/${post?.slug}`}>{post.data.title}</a>
+							<a href={`/blog/archives/${post?.slug}`} class="underline-animation">
+								{post.data.title}
+							</a>
 						</h3>
 						<div>
 							<p>{post.data.description || 'You may read more to find out about it'}</p>
