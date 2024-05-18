@@ -1,7 +1,9 @@
 ---
-import Layout from '@layouts/Layout.astro'
 import Logo from '@components/Logo.astro'
 import Prose from '@components/Prose.astro'
+import MeImage from '@images/me.png'
+import Layout from '@layouts/Layout.astro'
+import { Image } from 'astro:assets'
 ---
 
 <Layout title="About Dorell James" description="Learn my story about how I became today">
@@ -10,38 +12,54 @@ import Prose from '@components/Prose.astro'
 	</div>
 
 	<div class="section">
-		<h1 transition:name="page-heading-about" class="mb-12">Hi, I'm Dorell James! 👋</h1>
+		<h1 transition:name="page-heading-about">Hi, I'm Dorell James! 👋</h1>
 
 		<Prose>
+			<div class="inline">
+				<Image src={MeImage} alt="Me - Dorell James" width="120" />
+			</div>
+
 			<p>
-				A long long time ago, I helped someone create "3 columns of equal width" on his website.
-				This experience brought me immeasurable amount of joy having completed the job, helped
-				someone and make money for the first time.
+				A decade ago, I helped someone create <strong>"3 columns of equal width"</strong> on his website.
+				This experience brought me immeasurable amount of joy having completed the job, helped someone
+				and made money for the first time.
 			</p>
 
 			<p>
 				I thought it was perfect! But sooner as I grow into doing different things here and there, I
-				realised there's more to just building "3 columns of equal width". 😅
+				realised there's more to just building <strong><em>"3 columns of equal width"</em></strong>.
+				😅
 			</p>
 
 			<p>
 				After working on several more projects, gaining more experience and creating things on my
 				own, I’ve found joy not only in building things I love but also after helping others
 				succeed. Now, I work with a team of highly capable individuals with exceptional talent and
-				competencies, even better than mine to be honest - WebriQ.
+				competencies, even better than mine to be honest at <a
+					href="https://www.webriq.com/"
+					rel="nofollow noopener">WebriQ</a
+				>.
 			</p>
 
 			<p>
-				Unlike other agencies, or freelancers in the field, we know the process very well and have
-				established a true and tried system to make our clients get what they want. Also, we’re not
-				just one time people you asked to work on something but partners in the business.
+				Unlike other companies, agencies, and/or freelancers in the field, we (WebriQ) know the
+				process very well and have established a true and tried system to make our clients get what
+				they want and help them succeed in their business. Also, we’re not just a one time thing you
+				asked for to work on your project but we consider ourselves your partners from day one!
 			</p>
 
 			<p>
-				I also lead / co-lead different tech communities here in Cebu namely Laravel Cebu, React
-				Cebu and JavaScript Cebu. I work together with these ever so passionate and amazing people
-				who relentlessly share and dedicate their time in bringing these awesome events (meetups,
-				workshops and more) for the benefit of the community. 💯
+				I always had that believe in myself that the path to greatness is in the service to the many
+				and have been paying it forward for others ever since. I lead / co-lead different tech
+				communities here in Cebu namely <a
+					href="https://www.facebook.com/laravelcebu"
+					rel="nofollow noopener">Laravel Cebu (formerly)</a
+				>, <a href="https://www.facebook.com/reactcebu" rel="nofollow noopener">React Cebu</a> and <a
+					href="https://www.facebook.com/JavaScriptCebu/"
+					rel="nofollow noopener">JavaScript Cebu</a
+				>. I work together with these ever so passionate and amazing people who relentlessly share
+				and dedicate their time in bringing these awesome events (meetups, workshops and more) for
+				the benefit of the community. 💯
 			</p>
 
 			<p>If we ever get the chance to meet, please say hi or ping me laters!😊</p>
