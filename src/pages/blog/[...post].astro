@@ -1,7 +1,8 @@
 ---
-import Layout from '@layouts/Layout.astro'
-import Prose from '@components/Prose.astro'
+import DisqusComments from '@components/DisqusComments.astro'
 import Logo from '@components/Logo.astro'
+import Prose from '@components/Prose.astro'
+import Layout from '@layouts/Layout.astro'
 
 import type { GetStaticPaths } from 'astro'
 import { getCollection } from 'astro:content'
@@ -19,7 +20,13 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths
 
 const { post } = Astro.props
-const { Content, ...rest } = await post.render()
+const { Content } = await post.render()
+
+const disqusConfig = {
+	url: `${Astro.url.href}/blog${post.slug}`,
+	identifier: post.slug,
+	title: post.data.title
+}
 ---
 
 <Layout title={post.data.title} description={post.data?.description}>
@@ -34,9 +41,10 @@ const { Content, ...rest } = await post.render()
 		<Prose>
 			<Content />
 		</Prose>
+
+		<DisqusComments config={disqusConfig} />
 	</main>
 </Layout>
-
 <style>
 	h1 {
 		font-family: 'DM Serif Text', serif;

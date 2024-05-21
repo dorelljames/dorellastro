@@ -1,6 +1,7 @@
 ---
-import Layout from '@layouts/Layout.astro'
+import DisqusComments from '@components/DisqusComments.astro'
 import Prose from '@components/Prose.astro'
+import Layout from '@layouts/Layout.astro'
 import { toNow } from 'src/utils'
 
 import type { GetStaticPaths } from 'astro'
@@ -20,6 +21,12 @@ export const getStaticPaths = (async () => {
 
 const { post } = Astro.props
 const { Content } = await post.render()
+
+const disqusConfig = {
+	url: `${Astro.url.href}/blog${post.slug}`,
+	identifier: post.slug,
+	title: post.data.title
+}
 ---
 
 <Layout title={post.data.title} description={post.data?.description}>
@@ -33,6 +40,8 @@ const { Content } = await post.render()
 		<Prose>
 			<Content />
 		</Prose>
+
+		<DisqusComments config={disqusConfig} />
 	</main>
 </Layout>
 
