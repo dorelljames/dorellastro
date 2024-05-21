@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content'
 import Layout from '../../layouts/Layout.astro'
-import ThemeIcon from '@components/ThemeIcon.astro'
 
 const allBlogPosts = await getCollection('blog', ({ data }) => {
 	return data.categories?.includes('Web Development') && !data?.draft
@@ -13,8 +12,6 @@ const sortedBlogPosts = allBlogPosts?.sort((a, b) => b.data.date.getTime() - a.d
 	<main>
 		<h1 transition:name="page-heading-blog" transition:persist>Personal blog by @dorelljames</h1>
 		<p transition:persist>I love you and coding.</p>
-
-		<ThemeIcon />
 
 		<div class="section">
 			<h2 class="primaryHeading">LATEST</h2>
