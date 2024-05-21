@@ -1,6 +1,16 @@
 ---
 import Layout from '@layouts/Layout.astro'
 import Logo from '@components/Logo.astro'
+import { getCollection } from 'astro:content'
+
+const [devBlogPosts, archiveBlogPosts] = await Promise.all([
+	getCollection('blog', ({ data }) => {
+		return data.categories?.includes('Web Development') && !data?.draft
+	}),
+	getCollection('archives', ({ data }) => {
+		return !data.categories?.includes('Web Development') && !data?.draft
+	})
+])
 ---
 
 <Layout title="Full Stack Developer in Cebu City">
@@ -10,39 +20,47 @@ import Logo from '@components/Logo.astro'
 			<p>I love you and coding</p>
 		</div>
 
-		<div class="cardNav">
+		<div class="text-left">
 			<h2 transition:name="page-heading-about">
-				<a class="underline-animation" href="/about">About</a>
+				<a class="smooth-underline" href="/about">About</a>
 			</h2>
-			<p>1 short desc - 2 focus - 101% focused</p>
+			<p class="text-gray-800" transition:name="page-body-about">
+				Might I interest you in getting to know a little bit more about me?
+			</p>
 		</div>
 
-		<div class="cardNav">
+		<div class="text-right">
 			<h2 transition:name="page-heading-blog">
-				<a class="underline-animation" href="/blog">Blog</a>
+				<a class="smooth-underline-right" href="/blog">Blog</a>
 			</h2>
-			<p>2 new - 1 in progress - 12 overall</p>
+			<p class="text-gray-800" transition:name="page-body-blog">
+				1 in progress - {devBlogPosts.length || 15} dev stuff - {archiveBlogPosts.length || 12} archives
+			</p>
 		</div>
 
-		<div class="cardNav">
+		<div class="text-left">
 			<h2 transition:name="page-heading-events">
-				<a class="underline-animation" href="/events">Events</a>
+				<a class="smooth-underline" href="/events">Events</a>
 			</h2>
-			<p>2 upcoming - 1 in progress - 12 left this year</p>
+			<p class="text-gray-800" transition:name="page-body-events">2 upcoming - 5 left this year</p>
 		</div>
 
-		<div class="cardNav">
+		<div class="text-right">
 			<h2 transition:name="page-heading-testing">
-				<a class="underline-animation" href="/testing">Testing</a>
+				<a class="smooth-underline-right" href="/testing">Testing</a>
 			</h2>
-			<p>1 workshop - 12 videos - 3 in progress - 23% overall</p>
+			<p class="text-gray-800" transition:name="page-body-testing">
+				1 workshop - 12 videos - 3 in progress - 23% overall
+			</p>
 		</div>
 
-		<div class="cardNav">
+		<div class="text-left">
 			<h2 transition:name="page-heading-sanity-io">
-				<a class="underline-animation" href="/sanity-io">Sanity.io</a>
+				<a class="smooth-underline" href="/sanity-io">Sanity.io</a>
 			</h2>
-			<p>5 projects - 2 in progress - 40%</p>
+			<p class="text-gray-800" transition:name="page-body-sanity-io">
+				5 projects - 2 in progress - 40%
+			</p>
 		</div>
 	</main>
 </Layout>
@@ -66,11 +84,7 @@ import Logo from '@components/Logo.astro'
 		margin-top: 0;
 	}
 
-	.cardNav {
-		text-align: center;
-	}
-
-	.underline-animation {
+	.smooth-underline {
 		position: relative;
 		color: black; /* or any color you want for the text */
 		text-decoration: none; /* removes default underline */
@@ -78,7 +92,7 @@ import Logo from '@components/Logo.astro'
 		transition: transform 0.1s ease; /* smooth transition for lifting up */
 	}
 
-	.underline-animation::after {
+	.smooth-underline::after {
 		content: '';
 		position: absolute;
 		left: 0;
@@ -90,11 +104,11 @@ import Logo from '@components/Logo.astro'
 		transition: width 0.5s ease-in-out; /* smooth transition for the underline */
 	}
 
-	.underline-animation:hover::after {
+	.smooth-underline:hover::after {
 		width: 100%; /* full width on hover */
 	}
 
-	.underline-animation:active {
+	.smooth-underline:active {
 		transform: translateY(-5px); /* lifts the link up by 2 pixels */
 	}
 </style>

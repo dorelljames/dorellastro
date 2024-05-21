@@ -11,28 +11,31 @@ const sortedBlogPosts = allBlogPosts?.sort((a, b) => b.data.date.getTime() - a.d
 <Layout title="All posts">
 	<main>
 		<h1 transition:name="page-heading-blog" transition:persist>Personal blog by @dorelljames</h1>
-		<p transition:persist>I love you and coding.</p>
 
-		<div class="section">
-			<h2 class="primaryHeading">LATEST</h2>
+		<div transition:name="page-body-blog">
+			<p transition:persist>I love you and coding.</p>
 
-			{
-				sortedBlogPosts.map((post) => (
-					<div class="projectCard">
-						{/* {post.data?.featured_image && (
+			<div class="section">
+				<h2 class="primaryHeading">LATEST</h2>
+
+				{
+					sortedBlogPosts.map((post) => (
+						<div class="projectCard">
+							{/* {post.data?.featured_image && (
 							<img class="cover" src={post.data?.featured_image?.src} />
 						)} */}
-						<h3 transition:name={`post-heading-${post.slug}`}>
-							<a href={`/blog/${post?.slug}`} class="underline-animation">
-								{post.data.title}
-							</a>
-						</h3>
-						<div>
-							<p>{post.data.description}</p>
+							<h3 transition:name={`post-heading-${post.slug}`}>
+								<a href={`/blog/${post?.slug}`} class="smooth-underline">
+									{post.data.title}
+								</a>
+							</h3>
+							<div>
+								<p>{post.data.description}</p>
+							</div>
 						</div>
-					</div>
-				))
-			}
+					))
+				}
+			</div>
 		</div>
 
 		<div class="mt-12 border-t-2 border-dotted">

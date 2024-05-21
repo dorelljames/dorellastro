@@ -6,6 +6,7 @@ const allBlogPosts = await getCollection('archives', ({ data }) => {
 	return !data.categories?.includes('Web Development') && !data?.draft
 })
 const sortedBlogPosts = allBlogPosts?.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+console.log('🚀 ~ sortedBlogPosts:', sortedBlogPosts)
 ---
 
 <Layout title="Archived Posts">
@@ -22,7 +23,7 @@ const sortedBlogPosts = allBlogPosts?.sort((a, b) => b.data.date.getTime() - a.d
 				sortedBlogPosts.map((post) => (
 					<div class="projectCard">
 						<h3 transition:name={`post-heading-archives-${post.slug}`}>
-							<a href={`/blog/archives/${post?.slug}`} class="underline-animation">
+							<a href={`/blog/archives/${post?.slug}`} class="smooth-underline">
 								{post.data.title}
 							</a>
 						</h3>

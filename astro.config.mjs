@@ -18,7 +18,7 @@ export default defineConfig({
 				{
 					target: '_blank',
 					rel: 'noopener nofollow',
-					content: { type: 'text', value: ' ↗' }
+					content: { type: 'text', value: '↗' }
 				}
 			]
 		]

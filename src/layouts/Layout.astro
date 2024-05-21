@@ -70,14 +70,14 @@ const { title, description } = Astro.props
 				margin: 15rem 0;
 			}
 
-			.underline-animation {
+			.smooth-underline {
 				position: relative;
 				color: black; /* or any color you want for the text */
 				text-decoration: none; /* removes default underline */
 				overflow: hidden; /* ensures the pseudo-elements do not overflow */
 			}
 
-			.underline-animation::after {
+			.smooth-underline::after {
 				content: '';
 				position: absolute;
 				left: 0;
@@ -89,7 +89,34 @@ const { title, description } = Astro.props
 				transition: width 0.5s ease-in-out; /* smooth transition for the underline */
 			}
 
-			.underline-animation:hover::after {
+			.smooth-underline:hover::after {
+				width: 100%; /* full width on hover */
+			}
+
+			.smooth-underline-right {
+				position: relative;
+				color: black; /* or any color you want for the text */
+				text-decoration: none; /* removes default underline */
+				overflow: hidden; /* ensures the pseudo-elements do not overflow */
+			}
+
+			.smooth-underline-right::after {
+				content: '';
+				position: absolute;
+				right: 0; /* start from the right */
+				bottom: 0;
+				width: 0;
+				height: 2px; /* thickness of the underline */
+				background-image: linear-gradient(
+					to left,
+					#a855f7 50%,
+					transparent 50%
+				); /* reverse gradient direction */
+				background-size: 8px 2px; /* creates the dotted effect */
+				transition: width 0.5s ease-in-out; /* smooth transition for the underline */
+			}
+
+			.smooth-underline-right:hover::after {
 				width: 100%; /* full width on hover */
 			}
 

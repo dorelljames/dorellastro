@@ -127,62 +127,65 @@ const events = [
 <Layout title="Tech Events in Cebu" description="">
 	<main>
 		<h1 transition:name="page-heading-events">Awesome Events 🙌</h1>
+		<div transition:name="page-body-events">
+			<p>
+				In addition to leading communities and organizing events, I frequently give talks and
+				conduct workshops to contribute to the community. I've had the privilege of speaking at <a
+					href="https://cebu.wordcamp.org/2023/session/wordpress-jamstack/"
+					target="_blank"
+					rel="nofollow"
+					class="underline">Cebu Wordcamp 2023 <small>↗</small></a
+				> and <a
+					href="https://2019.cebu.wordcamp.org/speakers/#wcorg-speaker-dorell-james-galang"
+					target="_blank"
+					rel="nofollow"
+					class="underline">2019 <small>↗</small></a
+				>, sharing about my love for the community at <a
+					href="https://gdg.community.dev/events/details/google-gdg-cebu-presents-devfest-cebu-2023-1/"
+					target="_blank"
+					rel="nofollow"
+					class="underline"
+				>
+					DevFest Cebu 2023 <small>↗</small>
+				</a>Cebu co-leading workshops at <a
+					href="https://www.facebook.com/events/270482970543471/"
+					target="_blank"
+					rel="nofollow"
+					class="underline">Facebook Developer Circle <small>↗</small></a
+				> events, and participating in numerous other events. If you're interested in having me speak
+				at your event, please reach out.
+			</p>
 
-		<p>
-			In addition to leading communities and organizing events, I frequently give talks and conduct
-			workshops to contribute to the community. I've had the privilege of speaking at <a
-				href="https://cebu.wordcamp.org/2023/session/wordpress-jamstack/"
-				target="_blank"
-				rel="nofollow"
-				class="underline">Cebu Wordcamp 2023 <small>↗</small></a
-			> and <a
-				href="https://2019.cebu.wordcamp.org/speakers/#wcorg-speaker-dorell-james-galang"
-				target="_blank"
-				rel="nofollow"
-				class="underline">2019 <small>↗</small></a
-			>, sharing about my love for the community at <a
-				href="https://gdg.community.dev/events/details/google-gdg-cebu-presents-devfest-cebu-2023-1/"
-				target="_blank"
-				rel="nofollow"
-				class="underline"
-			>
-				DevFest Cebu 2023 <small>↗</small>
-			</a>Cebu co-leading workshops at <a
-				href="https://www.facebook.com/events/270482970543471/"
-				target="_blank"
-				rel="nofollow"
-				class="underline">Facebook Developer Circle <small>↗</small></a
-			> events, and participating in numerous other events. If you're interested in having me speak at
-			your event, please reach out.
-		</p>
+			<p>
+				Be really happy if you'd invite me in one of your events, please feel free to reach out.
+			</p>
 
-		<p>Be really happy if you'd invite me in one of your events, please feel free to reach out.</p>
+			<div class="section">
+				<h2 class="primaryHeading">RECENT</h2>
 
-		<div class="section">
-			<h2 class="primaryHeading">RECENT</h2>
+				{
+					events.map((event) => (
+						<div class="projectCard">
+							<h3>
+								<a href={event?.link} target="_blank" rel="nofollow">
+									{event.name} <small>↗</small>
+								</a>
+							</h3>
+							<div>
+								<small class="text-slate-500" title={event.date}>
+									🗓️ {toNow(event.date)}
+								</small>
+								<span style="margin: 0 5px;">&middot;</span>
+								<small class="text-slate-500" title={event.location}>
+									📍 {event.location}
+								</small>
+							</div>
 
-			{
-				events.map((event) => (
-					<div class="projectCard">
-						<h3>
-							<a href={event?.link} target="_blank" rel="nofollow">
-								{event.name} <small>↗</small>
-							</a>
-						</h3>
-						<div>
-							<small class="text-slate-500" title={event.date}>
-								🗓️ {toNow(event.date)}
-							</small>
-							<span style="margin: 0 5px;">&middot;</span>
-							<small class="text-slate-500" title={event.location}>
-								📍 {event.location}
-							</small>
+							<p class="text-slate-800">{event.description}</p>
 						</div>
-
-						<p class="text-slate-800">{event.description}</p>
-					</div>
-				))
-			}
+					))
+				}
+			</div>
 		</div>
 	</main>
 </Layout>

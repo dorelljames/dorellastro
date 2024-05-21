@@ -10,7 +10,7 @@ const projects = [
 		dateStarted: '04/01/2024',
 		dateTargetEnd: '05/04/2024',
 		percentageDone: 100,
-		link: ``
+		link: `https://www.jscebu.org/automated-testing-workshop`
 	}
 ]
 ---
@@ -19,7 +19,7 @@ const projects = [
 	<main>
 		<h1 transition:name="page-heading-testing">Testing 🙌</h1>
 
-		<p>
+		<p transition:name="page-body-testing">
 			I have a deep appreciation for Sanity.io, as it stands out as the best headless CMS for my
 			needs.
 		</p>
@@ -31,7 +31,9 @@ const projects = [
 				projects.map((project) => (
 					<div class="projectCard">
 						<h3 data-name={'heading' + project.name} transition:name={'heading' + project.name}>
-							<a href={project?.link}>{project.name}</a>
+							<a href={project?.link} target="_blank">
+								{project.name} ↗
+							</a>
 						</h3>
 						<div>
 							<small class="text-slate-500" title={project.dateTargetEnd}>

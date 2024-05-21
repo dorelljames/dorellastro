@@ -1,15 +1,17 @@
 ---
+import clsx from 'clsx'
+
 const currentPath = Astro.url.pathname
 ---
 
-<footer class={['/'].includes(currentPath) ? 'text-center' : ''}>
+<footer class={clsx('mt-32', ['/'].includes(currentPath) ? 'text-center' : '')}>
 	<p>
 		Copyright &copy; {new Date().getFullYear()}, d||ell. Build with <a
 			href="https://astro.build/"
 			target="_blank"
-			rel="nofollow">Astro</a
+			rel="nofollow">Astro <small>↗</small></a
 		>. Source on <a href="https://github.com/dorelljames/dorellastro" target="_blank" rel="nofollow"
-			>GitHub</a
+			>GitHub <small>↗</small></a
 		>
 	</p>
 </footer>

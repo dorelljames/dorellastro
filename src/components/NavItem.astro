@@ -1,7 +1,25 @@
 ---
-
+import clsx from 'clsx'
+const { href = '/' } = Astro.props
+const currentPath = Astro.url.pathname
+const isActive = currentPath === href
 ---
 
-<li class="relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400">
-	<slot />
+<li>
+	<a
+		href={href}
+		class={clsx(
+			'relative block px-3 py-2 transition',
+			isActive
+				? 'text-purple-500 dark:text-purple-400'
+				: 'hover:text-purple-500 dark:hover:text-purple-400'
+		)}
+	>
+		<slot />
+		{
+			isActive && (
+				<span class="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-purple-500/0 via-purple-500/40 to-purple-500/0 dark:from-purple-400/0 dark:via-purple-400/40 dark:to-purple-400/0" />
+			)
+		}
+	</a>
 </li>
