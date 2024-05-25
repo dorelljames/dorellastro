@@ -1,9 +1,9 @@
 ---
 title: End-to-End Testing with Sanity Studio & Playwright
 author: Dorell James
-draft: true
+draft: false
 type: post
-date: 2024-05-16T13:57:55.559Z
+date: 2024-05-25T13:34:06.277Z
 categories:
   - Web Development
 description: Learn how to do end-to-end test Sanity Studio with Playwright
@@ -21,7 +21,9 @@ This post will show you how to set up [Playwright](https://playwright.dev/) in y
 
 ## You might ask, what do I need this for?
 
-Normally, you wouldn't need this. You'll know when you do and when the time comes, I hope this guide will help you. Don't worry as I'll guide you step by step all the way.
+Normally, you wouldn't need this. You'll know when you do and when the time comes, I hope this guide will help you.
+
+As an example, you built a tool which does a couple of things. You can use Playwright to automate the testing as like how a real user would use it.
 
 ## Pre-requisites
 
@@ -75,11 +77,11 @@ Let's write a test to verify that we can create a blog post.
 1. In the Chromium browser as per above, let's navigate to `http://localhost:3333`.
 2. At this point, we'll need to authenticate. For now, just authenticate with the account type you used to sign up. Later on, we'll do authentication setup separately.
    ![Sanity Login Page](./authenticate.png)
-3. After logging in, we can then start recording and do our usual thing on creating a new post.
+3. After logging in, we can then start recording and do our usual thing like here in my case, it's creating a new post.
    ![Steps](./steps.gif)
-   and just like that, it'll output the code we need to write a new test.
+   and just like that, it'll output the code we need.
    ![Codegen Output](./codgen_output.png)
-4. Create a new file named `post.spec.ts` or if you're using JavaScript, then you can just use the `.js` extension and paste that in!
+4. Create a new file named `sample.spec.ts` or if you're using JavaScript, then you can just use the `.js` extension and paste that in!
 5. Voila. You just wrote your first test. Well done! 👏
 
 ## Authentication with Sanity Studio
@@ -131,11 +133,11 @@ setup('authenticate', async ({ page }) => {
 })
 ```
 
-3. Create a `.env.development` in your root project and add in the following variables, make sure to update them accordingly.
+3. Create a `.env.development` in your root project and add in the following variables, make sure to update the values accordingly.
 
 ```sh
-SANITY_STUDIO_ACCOUNT_USERNAME=galangdj+emailaccount@gmail.com
-SANITY_STUDIO_ACCOUNT_PASSWORD=MyTestAccount123(*)
+SANITY_STUDIO_ACCOUNT_USERNAME=me+playwrightesting@dorelljames.com
+SANITY_STUDIO_ACCOUNT_PASSWORD=MyTestPassword
 ```
 
 4. In our `playwright.config.ts`, we need to add it as dependency telling Playwright that all tests need to perform the above so we can expect that every `page` is authenticated thereafter and our tests will now passed.
@@ -171,3 +173,7 @@ export default defineConfig({
 5. Lastly, create a file `playwright/.auth/user.json` and put an `{}` inside as its content.
 
 ## Running Our Test
+
+Re-run the test and it should authenticate by now. Your `playwright/.auth/user.json` should have values now - cookie information and other related data on the current browser session.
+
+And that's it folks. Thank you! Let me know if it works for you.
