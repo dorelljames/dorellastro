@@ -3,11 +3,11 @@ title: Everything You Need To Know About Netlify Functions including Background 
 author: Dorell James
 type: post
 date: 2020-11-15T04:14:30+00:00
-featured_image: "./netlify-function-cover.png"
-description: "The announcement of the availability of Background Functions got me so excited that I immediately hopped into it. I even talked about this…"
+featured_image: './netlify-function-cover.png'
+description: 'The announcement of the availability of Background Functions got me so excited that I immediately hopped into it. I even talked about this…'
 categories:
   - Web Development
-url: ""
+url: ''
 ---
 
 The [announcement of the availability of Background Functions](https://www.netlify.com/blog/2020/10/29/announcing-background-functions/) got me so excited that I immediately hopped into it. I even talked about this in an online stream we did last Nov 14 at **Uncaught Exceptions**. You can [watch that here](https://youtu.be/HYA-SYZWYWU?t=55) if you're interested! 😊
@@ -48,7 +48,7 @@ The process for creating and deploying Netlify Functions vs Netlify Background F
 So, for example, if you name a function
 
 ```js
-hello.js;
+hello.js
 ```
 
 It will deploy as a synchronous function that returns its response to the client (eg: browser) after the function completes. Because the client is waiting on a response, the function must finish within 10 seconds, or it will fail as it timeouts.
@@ -77,13 +77,13 @@ Consider the following examples below:
 // hello.js
 
 exports.handler = async (event, context) => {
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: "Serverless Functions are cool! 😎",
-    }),
-  };
-};
+	return {
+		statusCode: 200,
+		body: JSON.stringify({
+			message: 'Serverless Functions are cool! 😎'
+		})
+	}
+}
 ```
 
 As soon as you invoke the function, we expect that it should return a response after 10 seconds. This operation is synchronous.
@@ -94,7 +94,7 @@ As soon as you invoke the function, we expect that it should return a response a
 
 ![Hello Local](./hello-local.png)
 
-#### Success operation as seen in Functions Log at [Netlify App](app.netlify.com)
+#### Success operation as seen in Functions Log at [Netlify App](https://app.netlify.com)
 
 ![Hello LIVE](./hello-live.png)
 
@@ -113,33 +113,28 @@ As soon as you invoke the function, we expect that it should return a response a
 ```js
 // hello-background.js
 
-const fetch = require("node-fetch");
+const fetch = require('node-fetch')
 
 exports.handler = async (event, context) => {
-  const destination = `http://localhost:8888/.netlify/functions/hello`;
-  const timeout = 15; // seconds
-  const sleep = (seconds) =>
-    Promise.resolve(() => setTimeout(resolve, +seconds * 1000));
+	const destination = `http://localhost:8888/.netlify/functions/hello`
+	const timeout = 15 // seconds
+	const sleep = (seconds) => Promise.resolve(() => setTimeout(resolve, +seconds * 1000))
 
-  // Simulating fake long running sequence
-  console.log(
-    `[INIT] Beginning to process data. This may take a while ~${timeout} seconds...`
-  );
-  await sleep(timeout); // seconds
-  console.log(`[SUCCESS] Done processing after ${timeout} seconds...`);
-  console.log(`Sending data to destination: ${destination}...`);
+	// Simulating fake long running sequence
+	console.log(`[INIT] Beginning to process data. This may take a while ~${timeout} seconds...`)
+	await sleep(timeout) // seconds
+	console.log(`[SUCCESS] Done processing after ${timeout} seconds...`)
+	console.log(`Sending data to destination: ${destination}...`)
 
-  // Sending data to a destination
-  fetch(destination, {
-    method: "POST",
-    body: JSON.stringify({
-      message: `Successfully processed request with ID: ${
-        Math.random() * 1000
-      }`,
-      date: new Date().toGMTString(),
-    }),
-  });
-};
+	// Sending data to a destination
+	fetch(destination, {
+		method: 'POST',
+		body: JSON.stringify({
+			message: `Successfully processed request with ID: ${Math.random() * 1000}`,
+			date: new Date().toGMTString()
+		})
+	})
+}
 ```
 
 As soon as the function is invoked, a 202 response is received and the process is queued in the background. After sleeping for 15 seconds, it sends a POST request to `hello` function but your usage could vary. It is really up to you what you should do about it.
@@ -148,7 +143,7 @@ As soon as the function is invoked, a 202 response is received and the process i
 
 ![Hello Background Local](./hello-background-local.png)
 
-#### Success operation as seen in Functions Log at [Netlify App](app.netlify.com) for background function
+#### Success operation as seen in Functions Log at [Netlify App](https://app.netlify.com) for background function
 
 ![Hello Background LIVE](./hello-background-live.png)
 
