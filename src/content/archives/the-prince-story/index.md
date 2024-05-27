@@ -1,10 +1,10 @@
 ---
-title: "The Prince Story"
+title: 'The Prince Story'
 author: Dorell James
 type: post
 date: 2013-03-04T17:49:09+00:00
 url: /personal/the-prince-story/
-featured_image: "./tumblr_m1a2kg6x5c1qbuar8o2_1280.jpg"
+featured_image: './tumblr_m1a2kg6x5c1qbuar8o2_1280.jpg'
 dsq_thread_id:
   - 1900565061
 categories:
@@ -47,7 +47,7 @@ And still keep believing and stick with the following below:
 
 &#8220;And if I am destined to be with my princess, I will.&#8221;
 
-\_Searching for an end? It's still not yet done. <del datetime="2014-04-08T17:07:59+00:00">To be continued&#8230;</em></del> Just finished making the second part, [go ahead and read it](/the-prince-story-2). <span class="wp-font-emots-emo-happy"></span> </p>
+\_Searching for an end? It's still not yet done. <del datetime="2014-04-08T17:07:59+00:00">To be continued&#8230;</em></del> Just finished making the second part, [go ahead and read it](/blog/the-prince-story-2). <span class="wp-font-emots-emo-happy"></span> </p>
 
 &#8212;
 

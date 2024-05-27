@@ -3,10 +3,10 @@ title: Adding Messenger Customer Chat Plugin To Your WordPress Site
 author: Dorell James
 type: post
 date: 2017-11-30T03:38:12+00:00
-description: "Facebook recently made available in open beta their Messenger Customer Chat Plugin which allows you to integrate your Messenger experience…"
+description: 'Facebook recently made available in open beta their Messenger Customer Chat Plugin which allows you to integrate your Messenger experience…'
 old_url: /web-development/adding-messenger-customer-chat-plugin-wordpress-site/
 url: adding-messenger-customer-chat-plugin-wordpress-site/
-featured_image: "./dorell-fb-messenger-1.png"
+featured_image: './dorell-fb-messenger-1.png'
 categories:
   - Web Development
 tags:
@@ -20,7 +20,7 @@ Facebook recently made available in open beta their [Messenger Customer Chat Plu
 
 > Are you interested in using a WordPress Plugin on this?
 >
-> If yes, search <a href="https://wordpress.org/plugins/wp-messenger-customer-chat/">WPMCCP</a> at WordPress Plugins. Activate, and then follow the instructions. <a href="/wordpress-messenger-customer-chat-plugin-installation/"><strong>Watch how-to video here</strong></a>.
+> If yes, search <a href="https://wordpress.org/plugins/wp-messenger-customer-chat/">WPMCCP</a> at WordPress Plugins. Activate, and then follow the instructions. <a href="/blog/wordpress-messenger-customer-chat-plugin-installation/"><strong>Watch how-to video here</strong></a>.
 >
 > NOTE: If you use this plugin, skip the guide below and/or undo what you did as per this guide.
 

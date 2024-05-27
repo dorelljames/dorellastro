@@ -1,10 +1,10 @@
 ---
-title: "The Prince Story II – Now Where Are We?"
+title: 'The Prince Story II – Now Where Are We?'
 author: Dorell James
 type: post
 date: 2014-04-08T16:56:16+00:00
 url: /personal/the-prince-story-2/
-featured_image: "./tumblr_m1a2kg6x5c1qbuar8o2_1280.jpg"
+featured_image: './tumblr_m1a2kg6x5c1qbuar8o2_1280.jpg'
 categories:
   - Personal
 tags:
@@ -25,7 +25,7 @@ The interesting part is when the prince noticed something; though only the princ
 
 Now the prince's thoughts wander like a stranger who never really had a home. And his thoughts were like at war trying to win something unreal. Hopefully one day, there's something bright waiting at the end. But where are we really now?
 
-<del datetime="2015-05-22T00:50:28+00:00">To be continued&#8230;</del> [And here it ends and a new beginning](/the-prince-story-3)
+<del datetime="2015-05-22T00:50:28+00:00">To be continued&#8230;</del> [And here it ends and a new beginning](/blog/the-prince-story-3)
 
 &#8212;
 
