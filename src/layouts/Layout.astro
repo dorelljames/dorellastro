@@ -23,19 +23,19 @@ const { title, description } = Astro.props
 		<link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title} | d||ell</title>
-		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=UA-39533448-1"
-		></script>
-		<script is:inline>
-			if (Astro.page) {
-				window.dataLayer = window.dataLayer || []
-				function gtag() {
-					window.dataLayer && window.dataLayer.push(arguments)
-				}
-				gtag('js', new Date())
-
-				gtag('config', 'UA-39533448-1')
-				gtag('config', 'G-9Y1N7DRP5N')
+		<script
+			type="text/partytown"
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=UA-39533448-1"></script>
+		<script type="text/partytown">
+			window.dataLayer = window.dataLayer || []
+			function gtag() {
+				window.dataLayer && window.dataLayer.push(arguments)
 			}
+			gtag('js', new Date())
+
+			gtag('config', 'UA-39533448-1')
+			gtag('config', 'G-9Y1N7DRP5N')
 		</script>
 
 		<ViewTransitions />
