@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content'
 import ExternalIcon from '@components/ExternalIcon.astro'
 import Layout from '@layouts/Layout.astro'
 import { toNow } from 'src/utils'
@@ -48,6 +49,13 @@ const plugins = [
 		isExternalLink: true
 	}
 ]
+
+const allBlogPosts = await getCollection('blog', ({ data }) => {
+	return (
+		data.categories?.includes('Web Development') && !data?.draft && data.tags?.includes('sanity-io')
+	)
+})
+const sortedBlogPosts = allBlogPosts?.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 ---
 
 <Layout title="My love for Sanity.io">
@@ -57,6 +65,24 @@ const plugins = [
 			I have a deep appreciation for Sanity.io, as it stands out as the best headless CMS for my
 			needs.
 		</p>
+
+		<div class="bg-yellow-50 my-24 rounded-lg p-4">
+			<div class="flex">
+				<div class="flex-shrink-0">👋</div>
+				<div class="ml-3">
+					<h3 class="text-yellow-800 text-lg font-bold">I'm available for work!</h3>
+					<div class="text-yellow-700 mt-2 text-sm">
+						<p>
+							Have a project you need some help? <a
+								class="hover:underline"
+								target="_blank"
+								href="mailto:me+website@dorelljames.com">Send me a message ↗</a
+							>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<div class="section">
 			<h2 class="primaryHeading">PROJECTS</h2>
@@ -98,6 +124,26 @@ const plugins = [
 							</a>
 						</h3>
 						<p>{plugin.description}</p>
+					</div>
+				))
+			}
+		</div>
+
+		<div class="section">
+			<h2 class="primaryHeading">RECENT POSTS</h2>
+
+			{
+				sortedBlogPosts.map((post) => (
+					<div class="projectCard">
+						<h3
+							data-name={'heading' + post.data.title}
+							transition:name={'heading' + post.data.title}
+						>
+							<a href={`/blog/${post?.slug}`} class="smooth-underline text-flex gap-3">
+								{post.data.title}
+							</a>
+						</h3>
+						<p>{post.data.description}</p>
 					</div>
 				))
 			}

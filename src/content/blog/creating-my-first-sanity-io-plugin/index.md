@@ -6,11 +6,9 @@ date: 2021-05-10T12:38:00.571Z
 categories:
   - Web Development
 url: /creating-my-first-sanity-io-plugin
-featured_image: "./my-first-sanity-plugin.png"
+featured_image: './my-first-sanity-plugin.png'
 description: I created my very first Sanity plugin and this article details out my experience - the problems I encountered and how I solved them. But yeah, just really scratching my own itch!
-tags:
-  - sanity.io
-  - plugin development
+tags: ['sanity.io', 'plugin development', 'sanity-io']
 ---
 
 I recently published [sanity-plugin-netlify-deploy-status-badge](https://www.npmjs.com/package/sanity-plugin-netlify-deploy-status-badge) - a Sanity studio plugin that displays your Netlify's site build status.
@@ -55,12 +53,12 @@ Anyhow, you should be able to find `sanity.json` in the plugin directory and if 
 
 ```json
 {
-  "parts": [
-    {
-      "implements": "part:@sanity/base/tool",
-      "path": "./index.js"
-    }
-  ]
+	"parts": [
+		{
+			"implements": "part:@sanity/base/tool",
+			"path": "./index.js"
+		}
+	]
 }
 ```
 
@@ -104,7 +102,7 @@ So, let's say if I have the following below as content:
 
 ```json
 {
-  "apiId": "<YOUR-NETLIFY-API-OR-SITE-ID-HERE>"
+	"apiId": "<YOUR-NETLIFY-API-OR-SITE-ID-HERE>"
 }
 ```
 
@@ -149,16 +147,16 @@ See [package dependencies here.](https://github.com/dorelljames/sanity-plugin-ne
 And lastly, you'll have to import `studioTheme` and `ThemeProvider` from `@sanity/ui` and make sure to wrap your primary component with it. See the example below:
 
 ```jsx
-import { ThemeProvider, studioTheme, Container, Text } from "@sanity/ui";
+import { ThemeProvider, studioTheme, Container, Text } from '@sanity/ui'
 
 export default function PrimaryComponent() {
-  return (
-    <ThemeProvider theme={studioTheme}>
-      <Container>
-        <Text>Yay! This works now...</Text>
-      </Container>
-    </ThemeProvider>
-  );
+	return (
+		<ThemeProvider theme={studioTheme}>
+			<Container>
+				<Text>Yay! This works now...</Text>
+			</Container>
+		</ThemeProvider>
+	)
 }
 ```
 

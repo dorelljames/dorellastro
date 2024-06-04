@@ -7,6 +7,7 @@ date: 2024-05-25T13:34:06.277Z
 categories:
   - Web Development
 description: Learn how to do end-to-end test Sanity Studio with Playwright
+tags: ['sanity-io', 'testing']
 ---
 
 ## Introduction

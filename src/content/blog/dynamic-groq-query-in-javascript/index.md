@@ -7,11 +7,8 @@ description: As we get to use GROQ more and more, it's inevitable when we get ou
 categories:
   - Web Development
 url: /dynamic-groq-query-in-javascript
-featured_image: "./dynamic-groq-query-in-javascript-banner.png"
-tags:
-  - sanity.io
-  - groq
-  - dynamic query
+featured_image: './dynamic-groq-query-in-javascript-banner.png'
+tags: ['sanity.io', 'groq', 'dynamic query', 'sanity-io']
 ---
 
 As we use Sanity.io's GROQ more and more, we'll soon get yourselves into situations where we will have to construct our queries dynamically. A very good example of that is say, we're working on getting all products based on different attributes.
@@ -52,10 +49,10 @@ In situations like this, we'll need to write our GROQ query dynamically, that's 
 In JavaScript, we could use [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) to take care of the second task like this below:
 
 ```javascript
-const { color, size, gender } = selection; // { color: "Red", size: "Small", gender: "Female" }
-const query = `*[color == "${color}" && size == "${size}" && gender == "${gender}"]`;
+const { color, size, gender } = selection // { color: "Red", size: "Small", gender: "Female" }
+const query = `*[color == "${color}" && size == "${size}" && gender == "${gender}"]`
 
-console.log(query); // *[color == "Red" && size == "Small" && gender == "Female"]
+console.log(query) // *[color == "Red" && size == "Small" && gender == "Female"]
 ```
 
 But if we use the code above when the user has filtered the products by `color` only then we'll get an incorrect GROQ query, sometimes malformed:
@@ -90,8 +87,8 @@ If you haven't had the chance to learn [GROQ](https://www.sanity.io/docs/groq), 
 For a start, we can use template literals to do some string interpolation.
 
 ```javascript
-const { color, size, gender } = selection; // { color: "Red", size: "Small", gender: "Female" }
-const query = `*[color == "${color}" && size == "${size}" && gender == "${gender}"]`;
+const { color, size, gender } = selection // { color: "Red", size: "Small", gender: "Female" }
+const query = `*[color == "${color}" && size == "${size}" && gender == "${gender}"]`
 ```
 
 This will give us exactly what we're looking for and the value of our query will be:
@@ -103,16 +100,16 @@ This will give us exactly what we're looking for and the value of our query will
 To take this a step further, instead of writing the filters by ourselves, we can use the [Array.reduce function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) on our object to construct it dynamically.
 
 ```javascript
-const { color, size, gender } = selection; // { color: "Red", size: "Small", gender: "Female" }
+const { color, size, gender } = selection // { color: "Red", size: "Small", gender: "Female" }
 
 const filters = Object.entries(selection)
-  .reduce((result, entry) => {
-    const [key, value] = entry;
-    return [...result, `${key} == "${value}"`];
-  }, [])
-  .join(" && ");
+	.reduce((result, entry) => {
+		const [key, value] = entry
+		return [...result, `${key} == "${value}"`]
+	}, [])
+	.join(' && ')
 
-const query = `*[ ${filters} ]`;
+const query = `*[ ${filters} ]`
 ```
 
 Awesome. Now we're unto something…
@@ -135,18 +132,13 @@ If we digest this out, we'll most probably come with this structure:
 ```javascript
 const query = `*[ ${filters} ] {
   ${projections}
-}`;
+}`
 ```
 
 And so, we could create `projections` too to take care of that. Nice!
 
 ```javascript
-const projections = [
-  "name",
-  "description",
-  "price",
-  "categoryType->{name}",
-].join(", ");
+const projections = ['name', 'description', 'price', 'categoryType->{name}'].join(', ')
 ```
 
 Now, what if we the user has decided to order the results by `price`? And our query looks like this now below.
@@ -163,34 +155,29 @@ Now, what if we the user has decided to order the results by `price`? And our qu
 Well, we can create `order` you'd say, just like below:
 
 ```javascript
-const order = `order(${sortKey}, ${sortDirection})`;
+const order = `order(${sortKey}, ${sortDirection})`
 ```
 
 And so, altogether, it'll be like this:
 
 ```javascript
-const { color, size, gender } = selection; // { color: "Red", size: "Small", gender: "Female" }
-const { sortKey, sortDirection } = sorting; // { sortKey: "price.amount", sortDirection: "desc" }
+const { color, size, gender } = selection // { color: "Red", size: "Small", gender: "Female" }
+const { sortKey, sortDirection } = sorting // { sortKey: "price.amount", sortDirection: "desc" }
 
 const filters = Object.entries(selection)
-  .reduce((result, entry) => {
-    const [key, value] = entry;
-    return [...result, `${key} == "${value}"`];
-  }, [])
-  .join(" && ");
+	.reduce((result, entry) => {
+		const [key, value] = entry
+		return [...result, `${key} == "${value}"`]
+	}, [])
+	.join(' && ')
 
-const projections = [
-  "name",
-  "description",
-  "price",
-  "categoryType->{name}",
-].join(", ");
+const projections = ['name', 'description', 'price', 'categoryType->{name}'].join(', ')
 
-const order = sorting ? `| order(${sortKey}, ${sortDirection})` : "";
+const order = sorting ? `| order(${sortKey}, ${sortDirection})` : ''
 
 const query = `*[ ${filters} ] {
   ${projections}
-} ${$order}`;
+} ${$order}`
 ```
 
 Sounds like we've made some progress but we can do more. Yes! See below.

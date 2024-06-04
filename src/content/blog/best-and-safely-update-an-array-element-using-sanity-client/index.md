@@ -6,11 +6,9 @@ date: 2022-09-02T02:17:18.718Z
 categories:
   - Web Development
 url: best-and-safely-update-an-array-element-using-sanity-client
-featured_image: "./best-and-safely-update-an-array-element-using-sanity-client.png"
+featured_image: './best-and-safely-update-an-array-element-using-sanity-client.png'
 description: Here's how you can safely update an Array element of a given field in a Sanity document - Sanity.io
-tags:
-  - sanity.io update array element
-  - array of type object
+tags: ['sanity.io update array element', 'array of type object', 'sanity-io']
 ---
 
 This one's a quick post that I thought I'd share that might be useful to our awesome devs out there working with Sanity. This came out after spending some time working on [WebriQ Studio](https://www.webriq.com/w-studio)'s multi-user feature.
@@ -21,31 +19,27 @@ So just a quick recap in Sanity client's documentation, you can add elements to 
 
 ```js
 client
-  .patch("organization-doc-id")
-  // Ensure that the `members` arrays exists before attempting to add items to it
-  .setIfMissing({ members: [] })
-  // Add the items after the last item in the array (append)
-  .insert("after", "members[-1]", [
-    { name: "John", status: "invited", dateInvited: Date.now() },
-  ])
-  .commit({
-    // Adds a `_key` attribute to array items, unique within the array, to
-    // ensure it can be addressed uniquely in a real-time collaboration context
-    autoGenerateArrayKeys: true,
-  });
+	.patch('organization-doc-id')
+	// Ensure that the `members` arrays exists before attempting to add items to it
+	.setIfMissing({ members: [] })
+	// Add the items after the last item in the array (append)
+	.insert('after', 'members[-1]', [{ name: 'John', status: 'invited', dateInvited: Date.now() }])
+	.commit({
+		// Adds a `_key` attribute to array items, unique within the array, to
+		// ensure it can be addressed uniquely in a real-time collaboration context
+		autoGenerateArrayKeys: true
+	})
 ```
 
 and also prepend like this (meaning it goes at at the top of the list):
 
 ```js
 client
-  .patch("organization-doc-id")
-  .setIfMissing({ members: [] })
-  // Add the items after the last item in the array (append)
-  .prepend("reviews", [
-    { name: "John", status: "invited", dateInvited: Date.now() },
-  ])
-  .commit({ autoGenerateArrayKeys: true });
+	.patch('organization-doc-id')
+	.setIfMissing({ members: [] })
+	// Add the items after the last item in the array (append)
+	.prepend('reviews', [{ name: 'John', status: 'invited', dateInvited: Date.now() }])
+	.commit({ autoGenerateArrayKeys: true })
 ```
 
 Awesome! <Emoji symbol="😎" label="cool" />
@@ -56,34 +50,34 @@ Say for example, I have 3 members in my `organization` document.
 
 ```json
 {
-  "_id": "organization-doc-id",
-  "_rev": "revision-1",
-  "_type": "organization",
-  "name": "Dummy Org",
-  "members": [
-    // highlight-start
-    {
-      "_id": "1",
-      "name": "John",
-      "status": "accepted",
-      "dateInvited": "2020-01-02T00:00:00.000Z",
-      "dateAccepted": "2020-01-05T00:00:00.000Z"
-    },
-    {
-      "_id": "2",
-      "name": "Mary",
-      "status": "invited",
-      "dateInvited": "2020-01-02T00:00:00.000Z"
-    },
-    {
-      "_id": "3",
-      "name": "Borg",
-      "status": "accepted",
-      "dateInvited": "2020-01-02T00:00:00.000Z",
-      "dateAccepted": "2020-01-05T00:00:00.000Z"
-    }
-    // highlight-end
-  ]
+	"_id": "organization-doc-id",
+	"_rev": "revision-1",
+	"_type": "organization",
+	"name": "Dummy Org",
+	"members": [
+		// highlight-start
+		{
+			"_id": "1",
+			"name": "John",
+			"status": "accepted",
+			"dateInvited": "2020-01-02T00:00:00.000Z",
+			"dateAccepted": "2020-01-05T00:00:00.000Z"
+		},
+		{
+			"_id": "2",
+			"name": "Mary",
+			"status": "invited",
+			"dateInvited": "2020-01-02T00:00:00.000Z"
+		},
+		{
+			"_id": "3",
+			"name": "Borg",
+			"status": "accepted",
+			"dateInvited": "2020-01-02T00:00:00.000Z",
+			"dateAccepted": "2020-01-05T00:00:00.000Z"
+		}
+		// highlight-end
+	]
 }
 ```
 
@@ -98,25 +92,25 @@ Sure, easy! You could do something like this, right?
 // NOTE: it's better to use "_id" field for it's uniqueness but for the sake of this example, we're opting to use the `name` intentionally
 // highlight-start
 const updatedMembers = organizationDoc.members.map((member) => {
-  if (member.name === "Mary") {
-    return {
-      ...member,
-      status: "accepted",
-      dateAccepted: new Date(),
-    };
-  }
-  return member;
-});
+	if (member.name === 'Mary') {
+		return {
+			...member,
+			status: 'accepted',
+			dateAccepted: new Date()
+		}
+	}
+	return member
+})
 // highlight-end
 
 // So then we can be happy
 client
-  .patch("organization-doc-id")
-  // Add the items after the last item in the array (append)
-  // highlight-start
-  .set(members)
-  // highlight-end
-  .commit();
+	.patch('organization-doc-id')
+	// Add the items after the last item in the array (append)
+	// highlight-start
+	.set(members)
+	// highlight-end
+	.commit()
 ```
 
 This might do but it's probably not the best way of doing this.
@@ -131,12 +125,10 @@ Here's how you can use `client.insert` function and `replace` argument value to 
 
 ```js
 // Let's grab our member's position(index) in array
-const memberIndex = organizationDoc.members.findIndex(
-  (member) => member.name === "Mary"
-); // 1
+const memberIndex = organizationDoc.members.findIndex((member) => member.name === 'Mary') // 1
 
 // Let's get the member we're about to update
-const member = organizationDoc.members[memberIndex];
+const member = organizationDoc.members[memberIndex]
 // {
 //   "_id": "2",
 //   "name": "Mary",
@@ -146,14 +138,14 @@ const member = organizationDoc.members[memberIndex];
 
 // Now, we can just update the element specifically and not the whole `members` field
 client
-  .patch("organization-doc-id")
-  // highlight-start
-  // We're using `replace` here and our `memberIndex` to specifically target the element and replace it instead of adding
-  .insert("replace", `members[${memberIndex}]`, [
-    { ...member, status: "accepted", dateAccepted: new Date() },
-  ])
-  // highlight-end
-  .commit();
+	.patch('organization-doc-id')
+	// highlight-start
+	// We're using `replace` here and our `memberIndex` to specifically target the element and replace it instead of adding
+	.insert('replace', `members[${memberIndex}]`, [
+		{ ...member, status: 'accepted', dateAccepted: new Date() }
+	])
+	// highlight-end
+	.commit()
 ```
 
 Now we're making progress, we can't accidentally wipe out the `members` array data but there's just one more problem. Guess what that is?
@@ -169,16 +161,16 @@ With that, we should do the following:
 ```js
 // Given same setup above in Solution 2, we can safely guard updates
 client
-  // highlight-start
-  // Notice we now pass a GROQ query to conditionally to make sure we're updating the current org ID and of specific _rev value
-  .patch({
-    query: groq`*[_id == "organization-doc-id" && _rev == "revision-1"]`,
-  })
-  // highlight-end
-  .insert("replace", `members[${memberIndex}]`, [
-    { ...member, status: "accepted", dateAccepted: new Date() },
-  ])
-  .commit();
+	// highlight-start
+	// Notice we now pass a GROQ query to conditionally to make sure we're updating the current org ID and of specific _rev value
+	.patch({
+		query: groq`*[_id == "organization-doc-id" && _rev == "revision-1"]`
+	})
+	// highlight-end
+	.insert('replace', `members[${memberIndex}]`, [
+		{ ...member, status: 'accepted', dateAccepted: new Date() }
+	])
+	.commit()
 ```
 
 After that patch, our document has been updated to another `_rev` update after the patch operation above.
